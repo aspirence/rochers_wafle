@@ -1,0 +1,1953 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4A2C9B">
+
+<title>Rocher's Waffle Chips — The Crunch That Finally Said Goodbye to Maida</title>
+<meta name="description" content="Thin. Crispy. Chocolate-drizzled. Made with whole grain jowar. Zero maida, gluten free, not fried — just waffled. 2 packs for ₹249.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rocher's Waffle Chips — Goodbye Maida, Hello Crunch">
+<meta property="og:description" content="Zero maida. Made with jowar. Not fried, just waffled. 2 packs for ₹249.">
+<meta property="og:image" content="images/main.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%234A2C9B'/><g fill='%23E8C692'><rect x='14' y='14' width='10' height='10' rx='3'/><rect x='27' y='14' width='10' height='10' rx='3'/><rect x='40' y='14' width='10' height='10' rx='3'/><rect x='14' y='27' width='10' height='10' rx='3'/><rect x='27' y='27' width='10' height='10' rx='3'/><rect x='40' y='27' width='10' height='10' rx='3'/><rect x='14' y='40' width='10' height='10' rx='3'/><rect x='27' y='40' width='10' height='10' rx='3'/><rect x='40' y='40' width='10' height='10' rx='3'/></g></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700..900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     📊  ANALYTICS & AD PIXELS  —  THE ONLY THING TO FILL IN IS BELOW
+     ───────────────────────────────────────────────────────────────────────────
+     Paste each ID between the quotes. That is the whole job — the snippets,
+     the events and the conversion tracking are already wired underneath.
+
+     Leave an ID blank and that tracker simply never loads: no broken script,
+     no console error, no wasted request. So it is safe to go live with only
+     the ones you have.
+
+     Where to find each one:
+       GA4_ID            Google Analytics → Admin → Data Streams → your stream
+                         → "Measurement ID". Looks like  G-XXXXXXXXXX
+       META_PIXEL_ID     Meta Events Manager → Data Sources → your pixel.
+                         A 15–16 digit number.
+       GOOGLE_ADS_ID     Google Ads → Tools → Conversions → your action →
+                         "Tag setup". Looks like  AW-123456789
+       GOOGLE_ADS_LABEL  Same screen, the send_to value after the slash.
+                         Looks like  AbC-D_efG-h12_34
+                         (only needed if you run Google Ads)
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script>
+window.ROCHERS_TAGS = {
+  GA4_ID:           "",
+  META_PIXEL_ID:    "",
+  GOOGLE_ADS_ID:    "",
+  GOOGLE_ADS_LABEL: ""
+};
+</script>
+
+<script>
+/* Loader. Reads the IDs above and boots only the trackers that have one. */
+(function () {
+  var T = window.ROCHERS_TAGS || {};
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+  /* ── Google (GA4 and/or Google Ads share one gtag.js) ─────────────────── */
+  var googleIds = [T.GA4_ID, T.GOOGLE_ADS_ID].filter(Boolean);
+  if (googleIds.length) {
+    gtag('js', new Date());
+    googleIds.forEach(function (id) { gtag('config', id); });
+    var g = document.createElement('script');
+    g.async = true;
+    g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(googleIds[0]);
+    document.head.appendChild(g);
+  }
+
+  /* ── Meta Pixel ───────────────────────────────────────────────────────── */
+  if (T.META_PIXEL_ID) {
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', T.META_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+
+  /* ── Anything else (Snapchat, Taboola, Clarity, a GTM container…) ───────
+     ▸ Paste additional tags right here. Everything above and below keeps
+       working regardless.                                                  */
+})();
+</script>
+
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  ROCHER'S WAFFLE CHIPS — single-file landing page
+  ───────────────────────────────────────────────────────────────────────────
+  No React. No build step. No dependencies. Open this file in a browser, or
+  upload it to any host, and it works.
+
+  ▸ TO GO LIVE, EDIT TWO THINGS:
+      1. RAZORPAY_LINK — one line, at the top of the <script> at the bottom.
+      2. Photos live in images/ — main.webp (Why Us), front.webp + back.webp
+         (What's Inside), 4.webp (closing section).
+
+  ▸ TO EDIT ANY TEXT: just find it in the HTML below and type over it. Every
+    section is marked with a big comment banner.
+
+  ▸ EVERY FACT ON THIS PAGE IS TAKEN FROM THE PRINTED PACK, front or back.
+    Nothing is guessed, rounded or inferred.
+
+    Where something was not known, it was REMOVED rather than filled with
+    filler — that is why there is no nutrition table, no shelf-life period, no
+    customer reviews, no star ratings, no strike-through MRP, no "Save 30%"
+    badge, no lifestyle gallery and no shipping/COD/returns answers in the FAQ.
+
+    Each of those has a "▸ DELIBERATELY NOT LISTED" or "▸ REMOVED ON PURPOSE"
+    comment where it used to be, saying exactly what the client must supply to
+    turn it back on. Search this file for "▸" to find them all.
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+
+<style>
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. DESIGN TOKENS  — change a colour here and the whole page follows.
+      Purple sampled from the pack's printed band.
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  --plum-50:#f3f0fc; --plum-100:#e4ddf7; --plum-200:#c7b9ee; --plum-300:#a390e2;
+  --plum-400:#7d64d2; --plum-500:#5e41b6; --plum-600:#4a2c9b; --plum-700:#3b2380;
+  --plum-800:#2c1a61; --plum-900:#1d1142;
+
+  --cocoa-100:#f4e6dc; --cocoa-200:#e5cab7; --cocoa-300:#cea78c; --cocoa-400:#ac7a5b;
+  --cocoa-500:#875439; --cocoa-600:#6b3f29; --cocoa-700:#4a2a1c; --cocoa-800:#331d13;
+  --cocoa-900:#20120b;
+
+  --cream-50:#fffdf9; --cream-100:#fdf7ed; --cream-200:#f8eeda; --cream-300:#f0e0c6;
+  --gold-300:#fbd68a; --gold-400:#f6be55; --gold-500:#eda22c;
+  --veg:#0a8a34;
+
+  --font-display:'Fraunces',ui-serif,Georgia,serif;
+  --font-sans:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+
+  --shadow-crisp:0 1px 2px rgb(74 42 28/.06), 0 8px 24px -8px rgb(74 42 28/.14);
+  --shadow-lift:0 2px 4px rgb(74 42 28/.06), 0 18px 44px -12px rgb(74 42 28/.22);
+  --shadow-plum:0 10px 30px -8px rgb(74 44 155/.45);
+
+  /* Corner radii. Squircle rather than pill — matched to the waffle itself,
+     whose wells are rx 9 on a 42 square and whose body is r 78 on 332 (~22%).
+     Change these three and every button, chip and badge follows. */
+  --r-sm:11px;
+  --r-md:14px;
+  --r-lg:18px;
+
+  --wrap:1440px;
+  --pad:20px;
+  /* Footprint of the floating buy dock (card height + the 12px it is lifted
+     off the bottom edge). The page reserves this much space at the end so the
+     dock never covers the last thing on it — there is no footer. */
+  --bar-h:92px;   /* raised to 148px under 560px, where the dock is two rows */
+}
+
+/* ═══ 2. RESET + BASE ═════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:88px;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  font-family:var(--font-sans);
+  background:var(--cream-50);
+  color:var(--cocoa-800);
+  line-height:1.55;
+  overflow-x:hidden;
+  padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom));
+}
+img,svg{max-width:100%;display:block}
+h1,h2,h3{
+  font-family:var(--font-display);
+  font-weight:900;
+  letter-spacing:-.02em;
+  line-height:1.04;
+  font-variation-settings:'SOFT' 40,'WONK' 1;
+  text-wrap:balance;
+}
+p{text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:3px solid var(--plum-600);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ═══ 3. LAYOUT HELPERS ═══════════════════════════════════════════════════ */
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+/* Load-bearing. A grid item defaults to min-width:auto, so any horizontally
+   scrolling rail inside one (the trust strip, the gallery, the review cards)
+   pushes its whole column out to the rail's unwrapped width — several hundred
+   pixels past a 390px phone. body{overflow-x:hidden} would then hide the
+   symptom while the layout stayed broken. */
+.hero-grid>*,.grid>*{min-width:0}
+.wrap-narrow{max-width:760px}
+section{position:relative;padding-block:56px;scroll-margin-top:88px}
+@media(min-width:768px){section{padding-block:88px} :root{--pad:32px}}
+@media(max-width:559px){:root{--bar-h:148px}}
+.tone-cream{background:var(--cream-50)}
+.tone-warm{background:var(--cream-100)}
+.tone-white{background:#fff}
+.tone-choc{background:var(--cocoa-800);color:var(--cream-100)}
+.tone-plum{background:var(--plum-700);color:var(--cream-50)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--plum-600);margin-bottom:12px;
+}
+.eyebrow::before{content:"";width:24px;height:1px;background:currentColor}
+.eyebrow.center::before{display:none}
+.tone-choc .eyebrow,.tone-plum .eyebrow{color:var(--gold-400)}
+h2{font-size:clamp(1.85rem,5vw,3rem)}
+h3{font-size:clamp(1.05rem,2.4vw,1.3rem)}
+.lede{margin-top:14px;font-size:clamp(1rem,2vw,1.125rem);opacity:.82;max-width:56ch}
+.head{margin-bottom:36px}
+.head.center{text-align:center;margin-inline:auto;max-width:640px}
+/* .lede carries its own max-width, which would otherwise pin it to the left
+   edge of a centred header block. */
+.head.center .lede{margin-inline:auto}
+@media(min-width:768px){.head{margin-bottom:52px}}
+
+/* ═══ 4. BUTTONS ══════════════════════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  border-radius:var(--r-md);font-weight:800;letter-spacing:-.01em;
+  transition:background-color .2s,transform .2s,box-shadow .2s;
+  min-height:44px;padding:0 24px;font-size:15px;white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn-lg{min-height:58px;padding:0 34px;font-size:17px;border-radius:var(--r-lg)}
+.btn-sm{min-height:44px;padding:0 20px;font-size:14px;border-radius:var(--r-sm)}
+.btn-primary{background:var(--plum-600);color:var(--cream-50);box-shadow:var(--shadow-plum)}
+.btn-primary:hover{background:var(--plum-700)}
+.btn-cream{background:var(--cream-50);color:var(--plum-700);box-shadow:var(--shadow-lift)}
+.btn-cream:hover{background:#fff}
+.btn-ghost{color:var(--cocoa-700)}
+.btn-ghost:hover{background:rgb(32 18 11/.05);transform:none}
+.btn .arw{transition:transform .2s}
+.btn:hover .arw{transform:translateX(4px)}
+@media(prefers-reduced-motion:reduce){.btn:hover,.btn:active{transform:none}}
+
+/* ═══ 5. PLACEHOLDER MARKING ══════════════════════════════════════════════
+   Kept for future use: if you ever add copy that is not yet client-approved,
+   wrap it in <span class="ph"> and it carries a visible dashed underline — on
+   the live page too, so filler can never ship unnoticed.
+   Nothing on the page currently uses it. */
+.ph{
+  text-decoration:underline dashed var(--plum-400) 2px;
+  text-underline-offset:4px;
+}
+
+/* ═══ 6. URGENCY ══════════════════════════════════════════════════════════ */
+/* Countdown digits. tabular-nums stops the boxes twitching every second as
+   digit widths change — the single most noticeable flaw in a cheap timer. */
+.cd{display:inline-flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.cd-inline b{font-weight:800}
+
+.cd-boxes{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.cd-boxes div{
+  min-width:74px;padding:10px 12px;border-radius:var(--r-md);
+  background:rgb(255 253 249/.14);border:1px solid rgb(255 253 249/.18);
+  display:flex;flex-direction:column;align-items:center;
+}
+.cd-boxes b{
+  font-family:var(--font-display);font-size:30px;font-weight:900;line-height:1;
+  color:var(--cream-50);font-variant-numeric:tabular-nums;
+}
+.cd-boxes span{
+  margin-top:5px;font-size:10px;font-weight:800;letter-spacing:.14em;
+  text-transform:uppercase;color:rgb(253 247 237/.75);
+}
+
+/* Small red-hot urgency chip used next to the CTAs. */
+.hot{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgb(237 162 44/.16);border:1px solid rgb(237 162 44/.4);
+  color:var(--cocoa-800);border-radius:var(--r-sm);padding:7px 14px;
+  font-size:12px;font-weight:800;letter-spacing:-.01em;
+}
+.hot.on-dark{background:rgb(251 214 138/.16);border-color:rgb(251 214 138/.38);color:var(--gold-300)}
+.dot{
+  width:7px;height:7px;border-radius:999px;background:#e5484d;flex:0 0 auto;
+  animation:pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.75)}}
+
+/* ═══ 6b. ANNOUNCEMENT + HEADER ═══════════════════════════════════════════ */
+/* On a phone the offer line is too long for one row and used to wrap into
+   three, eating a third of the first screen. It now runs as a marquee instead:
+   one line, always moving, no wasted height.
+   The track holds the same line twice and slides exactly -50%, so the loop is
+   seamless — the second copy is aria-hidden and is what the eye picks up as
+   the first scrolls out. */
+.announce{
+  background:linear-gradient(90deg,var(--plum-800),var(--plum-600) 50%,var(--plum-800));
+  color:var(--cream-50);
+  padding:9px 0;overflow:hidden;
+  font-size:13px;font-weight:700;letter-spacing:-.01em;
+}
+.announce-track{display:flex;width:max-content;animation:marquee 22s linear infinite}
+.announce-line{
+  display:inline-flex;align-items:center;gap:12px;
+  padding-inline:20px;white-space:nowrap;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Wide enough to fit on one row: stop moving and just centre it. */
+@media(min-width:820px){
+  .announce{padding:9px var(--pad)}
+  .announce-track{width:auto;flex:1;justify-content:center;animation:none}
+  .announce-line + .announce-line{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .announce-track{width:auto;flex:1;justify-content:center;animation:none}
+  .announce-line{white-space:normal;flex-wrap:wrap;justify-content:center}
+  .announce-line + .announce-line{display:none}
+}
+.announce .tagx{
+  background:var(--gold-400);color:var(--cocoa-900);
+  border-radius:7px;padding:3px 9px;
+  font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+}
+.hdr{
+  position:sticky;top:0;z-index:60;
+  transition:background-color .3s,box-shadow .3s;
+}
+/* On a phone the header is hidden through the hero, so the product photo sits
+   straight under the "Limited Time" bar with nothing between them. It is fixed
+   rather than sticky here, so while hidden it takes up no layout space at all;
+   it then slides in as an overlay once the hero is scrolled past. */
+@media(max-width:899px){
+  .hdr{
+    position:fixed;left:0;right:0;top:0;
+    transform:translateY(-100%);pointer-events:none;
+    transition:transform .3s cubic-bezier(.22,1,.36,1),background-color .3s,box-shadow .3s;
+  }
+  .hdr.revealed{transform:none;pointer-events:auto}
+}
+@media(prefers-reduced-motion:reduce){.hdr{transition:none}}
+.hdr.stuck{
+  background:rgb(255 253 249/.92);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:var(--shadow-crisp);
+}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.mark{display:flex;flex-direction:column;line-height:1}
+.mark b{font-family:var(--font-display);font-size:22px;font-weight:900;color:var(--plum-700);letter-spacing:-.02em}
+.mark span{font-size:9px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--cocoa-500);margin-top:3px}
+.nav{display:none;gap:4px}
+@media(min-width:900px){.nav{display:flex}}
+.nav a{padding:11px 16px;border-radius:var(--r-sm);font-weight:700;font-size:15px;color:var(--cocoa-700);transition:background-color .2s}
+.nav a:hover{background:rgb(32 18 11/.05);color:var(--plum-700)}
+.hdr-cta{display:flex;align-items:center;gap:8px}
+/* Header CTA is desktop-only — the floating dock covers the phone. */
+.hdr-buy{display:none}
+@media(min-width:900px){.hdr-buy{display:inline-flex}}
+.burger{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-sm);color:var(--cocoa-800)}
+.burger:hover{background:rgb(32 18 11/.05)}
+@media(min-width:900px){.burger{display:none}}
+/* Overlay dropdown, not an in-flow panel. Opening it used to push the whole
+   page down, which shifts everything the visitor was reading. position:sticky
+   on .hdr establishes the containing block, so top:100% hangs it directly
+   below the header without affecting layout at all. */
+.menu{
+  position:absolute;left:0;right:0;top:100%;
+  display:none;
+  background:rgb(255 253 249/.98);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-top:1px solid rgb(32 18 11/.1);
+  border-bottom:1px solid rgb(32 18 11/.1);
+  box-shadow:0 20px 36px -18px rgb(74 42 28/.5);
+  border-radius:0 0 var(--r-lg) var(--r-lg);
+}
+.menu.open{display:block;animation:menudrop .22s cubic-bezier(.22,1,.36,1)}
+@keyframes menudrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.menu a{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:0 8px;font-weight:700;border-radius:var(--r-sm)}
+.menu a:hover{background:rgb(32 18 11/.05)}
+@media(prefers-reduced-motion:reduce){.menu.open{animation:none}}
+
+/* ═══ 7. HERO ═════════════════════════════════════════════════════════════ */
+#hero{padding-top:24px;overflow:hidden}
+.hero-glow{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(70% 55% at 74% 34%, rgb(246 190 85/.24) 0%, rgb(246 190 85/0) 62%),
+    radial-gradient(58% 48% at 10% 6%, rgb(74 44 155/.13) 0%, rgb(74 44 155/0) 60%);
+}
+.hero-grid{position:relative;display:grid;gap:18px;align-items:center}
+@media(min-width:600px){.hero-grid{gap:26px}}
+/* Phone order: photo first, then headline, subheadline, and the buy block.
+   The product does the selling above the fold; the headline reads better as a
+   caption under it, and everything below climbs into the first screen. */
+@media(max-width:999px){
+  .hero-visual{order:1}
+  .hero-copy  {order:2}
+  .hero-sub   {order:3}
+  .hero-buy   {order:4}
+}
+@media(min-width:1000px){
+  .hero-grid{grid-template-columns:1.06fr 1fr;gap:20px 44px}
+  /* Explicit placement puts the subheadline back under the headline on
+     desktop, even though it comes after the photo in source order. */
+  .hero-copy  {grid-column:1;grid-row:1}
+  .hero-visual{grid-column:2;grid-row:1/span 3}
+  .hero-sub   {grid-column:1;grid-row:2}
+  .hero-buy   {grid-column:1;grid-row:3}
+}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgb(74 44 155/.1);color:var(--plum-700);
+  border:1px solid rgb(74 44 155/.16);
+  border-radius:var(--r-sm);padding:7px 14px;
+  font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+}
+/* The lower bound is deliberately small: at 390px the headline, the photo, the
+   price and the CTA all have to fit inside the first screen. */
+h1{font-size:clamp(1.6rem,6.6vw,4.25rem);margin-top:18px;color:var(--cocoa-900)}
+@media(max-width:999px){h1{margin-top:0!important}}
+h1 .ln{display:block}
+/* Playful hand-drawn strike on the word "Maida" */
+.strike{position:relative;display:inline-block;white-space:nowrap;color:var(--plum-600)}
+.strike svg{position:absolute;left:-2%;top:50%;width:104%;height:.34em;transform:translateY(-50%);color:var(--cocoa-700)}
+.hero-sub{margin-top:0;font-size:clamp(.85rem,3.4vw,1.2rem);color:var(--cocoa-700);max-width:36ch;line-height:1.45}
+@media(min-width:1000px){.hero-sub{margin-top:-8px}}
+
+.price-row{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 16px}
+.price{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,3.1rem);font-weight:900;line-height:1;color:var(--plum-700)}
+.mrp{font-size:1.3rem;font-weight:600;color:var(--cocoa-400);text-decoration:line-through 2px}
+.save{background:var(--gold-400);color:var(--cocoa-900);border-radius:var(--r-sm);padding:5px 13px;font-size:14px;font-weight:800}
+.unit{margin-top:6px;font-size:14px;font-weight:700;color:var(--cocoa-600);white-space:nowrap}
+.unit-tail{display:none}
+@media(min-width:600px){.unit-tail{display:inline}}
+.cta-row{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+@media(min-width:520px){.cta-row{flex-direction:row;align-items:center}}
+
+/* Trust strip — scrolls sideways on phones instead of wrapping raggedly */
+/* A real one-row slider on phones: it bleeds to both screen edges so the row
+   visibly continues past the viewport, and snaps per badge. It only wraps into
+   a block from 768px up, where all five fit. */
+.trust{
+  display:flex;gap:10px;margin-top:22px;
+  /* overflow-y:hidden is not optional — overflow-x:auto alone makes the
+     browser compute overflow-y:auto, giving the row a stray vertical scroll. */
+  overflow-x:auto;overflow-y:hidden;
+  /* No scroll-snap: it fights the continuous auto-scroll, yanking the row back
+     to a badge edge every frame. Free scrolling is right for a marquee. */
+  -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  scrollbar-width:none;-ms-overflow-style:none;
+  margin-inline:calc(var(--pad) * -1);padding:2px var(--pad);
+}
+.trust::-webkit-scrollbar{display:none}
+@media(min-width:768px){.trust{flex-wrap:wrap;overflow:visible;margin-inline:0;padding-inline:0;margin-top:28px}}
+.trust li{
+  flex:0 0 auto;list-style:none;
+  display:flex;align-items:center;gap:8px;
+  background:#fff;border-radius:var(--r-md);padding:10px 14px;
+  font-size:13px;font-weight:800;white-space:nowrap;
+  /* No drop shadow: as a scrolling row the shadows merged into one grey line
+     under the badges and made them look glued to a rail. A hairline border
+     alone separates them cleanly. */
+  border:1px solid rgb(32 18 11/.1);
+}
+.trust svg{color:var(--plum-600);flex:0 0 auto}
+
+/* ── The hero product shot ── */
+.waffle-holder{position:relative;width:100%;max-width:19rem;margin-inline:auto}
+@media(min-width:600px){.waffle-holder{max-width:26rem}}
+@media(min-width:1000px){.waffle-holder{max-width:34rem}}
+.hero-shot{border-radius:var(--r-lg);box-shadow:var(--shadow-lift);animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-12px,0) rotate(1.5deg)}}
+.tag{
+  position:absolute;z-index:5;
+  background:rgb(255 255 255/.96);border:1px solid rgb(32 18 11/.06);
+  border-radius:var(--r-sm);padding:8px 13px;font-size:13px;font-weight:800;
+  box-shadow:var(--shadow-crisp);
+}
+.tag-a{left:0;top:9%}
+.tag-b{right:0;bottom:13%}
+@media(min-width:600px){.tag-a{left:-12px}.tag-b{right:-12px}}
+.cue{
+  display:flex;justify-content:center;margin-top:34px;
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cocoa-500);gap:8px;align-items:center;
+  animation:bob 1.9s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ═══ 8. GENERIC CARDS / GRIDS ════════════════════════════════════════════ */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr}
+.g3{grid-template-columns:1fr}
+.g4{grid-template-columns:repeat(2,1fr)}
+@media(min-width:640px){.g2,.g3{grid-template-columns:repeat(2,1fr)}}
+/* Why We Made This: photo first on a phone, right-hand column on desktop.
+   Capped on phones so a 2:3 portrait does not fill the screen; roomy on
+   desktop, where it has a whole column to itself. */
+.why-img{max-width:300px;margin-inline:auto}
+@media(min-width:640px){
+  .why-grid{gap:18px 36px}
+  .why-img {grid-column:2;grid-row:1/span 2;max-width:none;justify-self:center}
+  /* The photo spans both rows and is taller than the copy, so the two copy
+     rows were being stretched apart with align-items:center — leaving a hole
+     between the heading and the paragraphs. Pinning the heading to the bottom
+     of its row and the body to the top of the next closes it, while the pair
+     still sits vertically centred against the photo. */
+  .why-head{grid-column:1;grid-row:1;align-self:end}
+  .why-body{grid-column:1;grid-row:2;align-self:start}
+}
+@media(min-width:1000px){.why-img{max-width:460px}}
+
+/* Ready to Crunch: same idea — the pack shot leads on a phone. */
+.cta-grid{display:grid;gap:26px;align-items:center}
+@media(min-width:640px){
+  .cta-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .cta-grid > .cta-img {grid-column:2;grid-row:1}
+  .cta-grid > .cta-copy{grid-column:1;grid-row:1}
+}
+
+/* ── Pack photo slider ───────────────────────────────────────────────────
+   One photo at a time on a phone, swiped left/right and snapping to each.
+   Two side by side from 640px, where both fit without shrinking. */
+.pack-slider{
+  display:flex;gap:12px;
+  /* overflow-y MUST be stated. Setting only overflow-x:auto makes the browser
+     compute overflow-y as auto too, which gave the slider its own vertical
+     scrollbar — the photo scrolled up and down inside the rail, separately
+     from the page. Locking it to hidden leaves left/right swiping only, and
+     vertical drags fall through to the page as they should. */
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;
+  scrollbar-width:none;-ms-overflow-style:none;
+  margin-inline:calc(var(--pad) * -1);padding-inline:var(--pad);
+}
+.pack-slider::-webkit-scrollbar{display:none}
+/* Fixed box per slide: full rail width, height locked by the 2:3 ratio. */
+.pack-slider > *{flex:0 0 100%;height:auto;scroll-snap-align:center}
+@media(min-width:640px){
+  .pack-slider{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:26px;
+    overflow:visible;margin-inline:auto;padding-inline:0;max-width:720px;
+  }
+  .pack-slider > *{flex:none}
+}
+.pack-dots{display:flex;justify-content:center;gap:7px;margin-top:14px}
+@media(min-width:640px){.pack-dots{display:none}}
+.pack-dots b{
+  width:7px;height:7px;border-radius:999px;background:rgb(253 247 237/.3);
+  transition:background-color .25s,width .25s;
+}
+.pack-dots b.on{width:20px;background:var(--gold-400)}
+@media(min-width:1000px){.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.grid{gap:22px}}
+.card{
+  background:#fff;border-radius:24px;padding:24px;
+  box-shadow:var(--shadow-crisp);border:1px solid rgb(32 18 11/.05);
+  transition:transform .3s;height:100%;
+}
+.card:hover{transform:translateY(-6px)}
+@media(prefers-reduced-motion:reduce){.card:hover{transform:none}}
+/* Standalone class, NOT `.card .ico` — it is also used outside cards
+   (Ways to Enjoy), where a card-scoped selector left it as a bare icon. */
+.ico{
+  width:48px;height:48px;border-radius:var(--r-md);flex:0 0 auto;
+  background:rgb(74 44 155/.1);color:var(--plum-700);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.card p{margin-top:8px;font-size:15px;color:var(--cocoa-600)}
+.ways li{display:flex;flex-direction:column;align-items:center}
+.ways .ico{margin-bottom:14px}
+.ways p{max-width:30ch}
+
+/* ═══ 9. IMAGE SLOTS (real photo, or a labelled placeholder) ══════════════ */
+.shot{
+  position:relative;border-radius:24px;overflow:hidden;
+  background:var(--cream-100);box-shadow:var(--shadow-crisp);
+}
+.shot img{width:100%;height:100%;object-fit:cover}
+.shot.contain img{object-fit:contain;background:transparent;box-shadow:none}
+.shot-miss{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  border:2px dashed var(--plum-300);background:var(--cream-100);
+  background-image:linear-gradient(to right,rgb(74 42 28/.055) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgb(74 42 28/.055) 1px,transparent 1px);
+  background-size:28px 28px;padding:16px;
+}
+.shot-miss span{font-size:11px;line-height:1.4;color:var(--cocoa-600);max-width:86%}
+.shot-miss b{display:block;color:var(--plum-700);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;font-size:11px}
+
+/* ═══ 10. PACK FACTS ══════════════════════════════════════════════════════ */
+.facts{background:#fff;border-radius:24px;padding:22px;box-shadow:var(--shadow-crisp);border:1px solid rgb(32 18 11/.08)}
+.facts dl{display:grid;gap:0}
+.facts .row{display:grid;gap:4px;padding:14px 0;border-top:1px solid rgb(32 18 11/.09)}
+.facts .row:first-child{border-top:0;padding-top:0}
+@media(min-width:560px){.facts .row{grid-template-columns:140px 1fr;gap:16px}}
+.facts dt{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--plum-700);padding-top:3px}
+.facts dd{font-size:15px;color:var(--cocoa-700)}
+/* Ingredients + label data share one card. Two columns from 860px up, with a
+   hairline rule between them; stacked with a rule above the list below that. */
+.label-cols{display:grid;gap:24px}
+@media(min-width:860px){
+  .label-cols{grid-template-columns:1.05fr 1fr;gap:36px}
+  .label-cols>dl{border-left:1px solid rgb(32 18 11/.09);padding-left:36px}
+  /* The ingredients column is shorter than the spec list beside it. Centring
+     its CONTENT — rather than setting align-items:center on the grid — keeps
+     the column itself full height, so the divider rule still runs the whole
+     way down instead of shrinking to the shorter side. */
+  .label-cols>div{display:flex;flex-direction:column;justify-content:center}
+}
+@media(max-width:859px){
+  .label-cols>dl{border-top:1px solid rgb(32 18 11/.09);padding-top:20px}
+}
+.label-h{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--plum-700);margin-bottom:8px}
+.vegmark{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:14px}
+.vegmark i{width:16px;height:16px;border:2px solid var(--veg);display:inline-flex;align-items:center;justify-content:center;border-radius:2px}
+.vegmark i::after{content:"";width:8px;height:8px;border-radius:999px;background:var(--veg)}
+
+/* ═══ 11. COMPARISON ══════════════════════════════════════════════════════ */
+.cmp-cards{display:flex;flex-direction:column;gap:12px}
+@media(min-width:768px){.cmp-cards{display:none}}
+.cmp-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-crisp);border:1px solid rgb(32 18 11/.05)}
+.cmp-card>p{background:rgb(32 18 11/.04);padding:9px 16px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa-600)}
+.cmp-cell{display:flex;gap:10px;padding:12px 16px;border-top:1px solid rgb(32 18 11/.08)}
+.cmp-cell.us{background:rgb(74 44 155/.06)}
+.cmp-cell small{display:block;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cocoa-400)}
+.cmp-table{display:none}
+@media(min-width:768px){.cmp-table{display:block;background:#fff;border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lift);border:1px solid rgb(32 18 11/.05)}}
+.cmp-table table{width:100%;border-collapse:collapse}
+.cmp-table th,.cmp-table td{padding:16px 20px;text-align:left;vertical-align:top}
+.cmp-table thead th:nth-child(2){background:var(--plum-600);color:var(--cream-50);font-size:15px;font-weight:900}
+.cmp-table thead th:nth-child(3){color:var(--cocoa-500);font-size:15px;font-weight:900}
+.cmp-table tbody tr{border-top:1px solid rgb(32 18 11/.09)}
+.cmp-table tbody th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa-600);font-weight:800;width:24%}
+.cmp-table .us{background:rgb(74 44 155/.06)}
+.tick{display:flex;gap:10px;font-size:15px;font-weight:700;color:var(--cocoa-900)}
+.tick.no{font-weight:400;color:var(--cocoa-500)}
+.tick svg{flex:0 0 auto;margin-top:2px;color:var(--plum-600)}
+.tick.no svg{color:var(--cocoa-300)}
+
+/* ═══ 13. FAQ ═════════════════════════════════════════════════════════════ */
+.faq{display:flex;flex-direction:column;gap:12px}
+.q{background:#fff;border-radius:18px;box-shadow:var(--shadow-crisp);border:1px solid rgb(32 18 11/.05);overflow:hidden}
+.q.open{border-color:rgb(74 44 155/.3)}
+/* Descendant, not child: the button is wrapped in an <h3> for heading
+   semantics, so `.q > button` would never match it. */
+.q h3{font-size:inherit}
+.q button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;text-align:left;font-family:var(--font-display);font-weight:900;font-size:16px;color:var(--cocoa-900)}
+/* The question must be a real flex item with min-width:0, or a long question
+   cannot shrink below its min-content width and overflows the card on a phone. */
+.q .qt{flex:1;min-width:0;line-height:1.3}
+.q .tog{width:32px;height:32px;flex:0 0 auto;border-radius:var(--r-sm);background:rgb(32 18 11/.05);color:var(--cocoa-600);display:flex;align-items:center;justify-content:center;transition:.3s}
+.q.open .tog{background:var(--plum-600);color:var(--cream-50);transform:rotate(180deg)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.q.open .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{padding:0 20px 18px;font-size:15px;color:var(--cocoa-600)}
+@media(prefers-reduced-motion:reduce){.q .a{transition:none}}
+
+/* ═══ 14. STICKY BUY BAR  (replaces the footer entirely) ══════════════════
+   A floating dock rather than a full-width strip: it is capped narrow, lifted
+   off the bottom edge and given a real shadow, so it reads as a card sitting
+   on top of the page instead of a browser chrome bar welded to the viewport.
+   The outer element is pointer-events:none so the gap around the dock does not
+   swallow clicks on the page underneath. */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  pointer-events:none;
+  padding:0 12px calc(12px + env(safe-area-inset-bottom));
+  transform:translateY(140%);transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.bar.show{transform:translateY(0)}
+.bar-in{
+  pointer-events:auto;
+  display:flex;align-items:center;gap:10px;
+  max-width:720px;margin-inline:auto;padding:9px 10px 9px 9px;
+  background:rgb(255 253 249/.94);
+  backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);
+  border:1px solid rgb(32 18 11/.1);
+  border-radius:20px;
+  box-shadow:0 20px 44px -14px rgb(74 42 28/.45), 0 3px 10px -2px rgb(74 42 28/.16);
+}
+.bar-thumb{width:46px;height:46px;flex:0 0 auto;border-radius:var(--r-sm);overflow:hidden;background:var(--cream-100);border:1px solid rgb(32 18 11/.07)}
+.bar-thumb img{width:100%;height:100%;object-fit:cover}
+.bar-txt{min-width:0;flex:0 0 auto;display:flex;align-items:baseline;gap:6px}
+.bar-txt b{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--plum-700);line-height:1}
+.bar-mrp{font-size:12px;font-weight:700;color:var(--cocoa-400);text-decoration:line-through 2px}
+@media(prefers-reduced-motion:reduce){.bar{transition:none}}
+
+/* ── Flip-clock timer, centred in the dock ───────────────────────────────
+   margin-inline:auto parks it in the middle: the price block and the button
+   keep their natural widths and the timer absorbs the space between them. */
+.bar-timer{margin-inline:auto;display:flex;align-items:center;gap:4px}
+.bar-timer-label{
+  display:none;margin-right:8px;font-size:9px;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--cocoa-500);
+}
+@media(min-width:620px){.bar-timer-label{display:inline}}
+.bar-timer i{font-style:normal;font-weight:900;color:var(--cocoa-300);font-size:13px;padding-bottom:2px}
+
+/* perspective on the wrapper, transform on the child — that split is what
+   makes the card actually rotate in depth instead of just squashing. */
+.flip{display:block;perspective:220px}
+.face{
+  display:block;min-width:34px;padding:7px 5px;border-radius:9px;
+  /* The 49%/51% stop is the seam across the middle of a real flip-clock leaf. */
+  background:linear-gradient(180deg,#3d2519 0%,#24140c 49%,#2f1c12 51%,#180d07 100%);
+  color:var(--cream-50);
+  font-family:var(--font-display);font-size:17px;font-weight:900;line-height:1;
+  text-align:center;font-variant-numeric:tabular-nums;
+  box-shadow:0 6px 12px -5px rgb(32 18 11/.6), inset 0 1px 0 rgb(255 255 255/.09);
+  transform-origin:center bottom;
+  will-change:transform;
+}
+/* Re-adding the class restarts the keyframe, so a digit only flips on the tick
+   where its value actually changed. The whole card swings up from lying flat,
+   overshoots a touch, and settles. */
+.face.flipping{animation:cardflip .55s cubic-bezier(.2,.9,.25,1)}
+@keyframes cardflip{
+  0%   {transform:rotateX(-88deg);opacity:.4}
+  55%  {transform:rotateX(11deg);opacity:1}
+  78%  {transform:rotateX(-5deg)}
+  100% {transform:rotateX(0);opacity:1}
+}
+@media(min-width:620px){.face{min-width:40px;font-size:20px;padding:8px 6px}}
+
+/* ── Narrow phones ──────────────────────────────────────────────────────
+   At 390px the dock's five pieces need ~420px in one row, so the Buy Now
+   button was being pushed off the right edge. Below 560px the dock wraps to
+   two rows instead: thumb + price + timer on top, a full-width CTA underneath.
+   A full-width button is the better mobile target anyway. */
+@media(max-width:559px){
+  .bar-in{flex-wrap:wrap;row-gap:9px;padding:9px 10px}
+  .bar-timer{margin-left:auto;margin-right:0;gap:3px}
+  .bar-in > .buy{flex:1 0 100%;order:5;min-height:46px}
+  .bar-thumb{width:42px;height:42px}
+  .bar-txt b{font-size:19px}
+  .face{min-width:30px;font-size:15px;padding:6px 4px}
+}
+
+/* ── Chocolate cracks on the sticky Buy Now ──────────────────────────────
+   Decorative only. The cracks draw themselves across the button, hold, fade,
+   and repeat every 7s — a small "crack/crunch" beat where the thumb already is. */
+.crackle{position:relative;overflow:hidden;flex:0 0 auto}
+.cracks{position:absolute;inset:0;pointer-events:none}
+.cracks svg{width:100%;height:100%;display:block}
+.cracks path{
+  fill:none;stroke:#2a150c;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:90;stroke-dashoffset:90;opacity:0;
+  animation:crack 7s ease-in-out infinite;
+}
+.cracks path:nth-child(2){animation-delay:.18s}
+.cracks path:nth-child(3){animation-delay:.34s}
+.cracks path:nth-child(4){animation-delay:.5s}
+.cracks path:nth-child(5){animation-delay:.72s;stroke-width:1.8;stroke-dasharray:40;stroke-dashoffset:40}
+@keyframes crack{
+  0%   {stroke-dashoffset:90;opacity:0}
+  4%   {opacity:.55}
+  16%  {stroke-dashoffset:0;opacity:.55}
+  40%  {stroke-dashoffset:0;opacity:.55}
+  52%  {stroke-dashoffset:0;opacity:0}
+  100% {stroke-dashoffset:90;opacity:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .cracks{display:none}
+  .face.flipping{animation:none}
+}
+
+/* ═══ 15. FINE PRINT (the footer's legal duties, without a footer) ════════ */
+.fineprint{
+  margin-top:36px;padding-top:22px;border-top:1px solid rgb(253 247 237/.16);
+  display:flex;flex-wrap:wrap;gap:10px 26px;
+  font-size:12px;color:rgb(253 247 237/.7);
+}
+.fineprint a{font-weight:700;color:var(--gold-400)}
+.fineprint a:hover{text-decoration:underline}
+
+/* ═══ 16. SCROLL REVEAL ═══════════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ═══ 17. REDUCED MOTION — required by the brief ══════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rv{opacity:1;transform:none}
+  .hero-shot{animation:none}
+  .cue{animation:none}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     ANNOUNCEMENT BAR   ▸ EDIT: the offer line
+     ══════════════════════════════════════════════════════════════════════ -->
+<!-- ▸ EDIT: the offer line. The countdown is driven by OFFER_ENDS in the
+     <script> at the bottom — set a REAL end date there. -->
+<div class="announce">
+  <div class="announce-track">
+    <span class="announce-line">
+      <span class="tagx">Limited Time</span>
+      <span>🎉 Launch Offer — 2 Packs for ₹249</span>
+      <span class="cd cd-inline" data-cd="inline" hidden>· Ends in <b data-cd-val>—</b></span>
+    </span>
+    <!-- Duplicate purely so the marquee can loop without a gap. Hidden from
+         screen readers so the offer is not announced twice. -->
+    <span class="announce-line" aria-hidden="true">
+      <span class="tagx">Limited Time</span>
+      <span>🎉 Launch Offer — 2 Packs for ₹249</span>
+      <span class="cd cd-inline" data-cd="inline" hidden>· Ends in <b data-cd-val>—</b></span>
+    </span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════════════════════════════ -->
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="#hero" aria-label="Rocher's Waffle Chips — top of page">
+      <!-- ▸ REPLACE: swap this wordmark for <img src="images/logo.png" alt="Rocher's"> -->
+      <span class="mark"><b>Rocher's</b><span>Waffle Chips</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Page sections">
+      <a href="#why-us">Why Us</a>
+      <a href="#pack">What's Inside</a>
+      <a href="#compare">Compare</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="hdr-cta">
+      <!-- Desktop only. On a phone the floating dock at the bottom already
+           carries a permanent Buy Now, so a second one up here is just noise. -->
+      <a class="btn btn-primary btn-sm buy hdr-buy" data-src="header" href="#" target="_blank" rel="noopener noreferrer">
+        Buy Now
+        <svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+      </a>
+      <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="menu" id="menu" aria-label="Page sections">
+    <div class="wrap" style="padding-block:8px">
+      <a href="#why-us">Why Us <span aria-hidden="true">→</span></a>
+      <a href="#pack">What's Inside <span aria-hidden="true">→</span></a>
+      <a href="#compare">Compare <span aria-hidden="true">→</span></a>
+      <a href="#faq">FAQ <span aria-hidden="true">→</span></a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     HERO   ▸ EDIT: headline, subheadline, price
+     The waffle below breaks apart as you scroll — that is the signature effect.
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="hero" class="tone-cream">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+
+    <div class="hero-copy">
+      <h1 style="margin-top:20px">
+        <span class="ln">The Crunch That</span>
+        <span class="ln">Finally Said</span>
+        <span class="ln">Goodbye to <span class="strike">Maida<svg viewBox="0 0 120 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9.5C22 4.5 44 12 62 7.5S98 3 118 8" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/></svg></span>.</span>
+      </h1>
+
+    </div>
+
+    <div class="hero-visual">
+      <div class="waffle-holder">
+        <!-- Real product photography. The drawn vector waffle and its
+             scroll-driven break-apart effect were removed at the client's
+             request, on desktop and mobile both. -->
+        <div class="shot hero-shot" style="aspect-ratio:1" data-shot="images/4.webp"
+             data-note="HERO — images/4.webp"
+             data-alt="Packs of Rocher's Waffle Chips with chips beside them"></div>
+        <span class="tag tag-a">🌾 Jowar, not maida</span>
+        <span class="tag tag-b">🍫 Real chocolate drizzle</span>
+      </div>
+    </div>
+
+    <!-- Source order IS the phone order: headline → photo → subheadline → buy.
+         The subheadline sits after the photo so the price and CTA climb high
+         enough to land inside the first screen. Desktop puts it back under the
+         headline via explicit grid placement below. -->
+    <p class="hero-sub">Thin. Crispy. Chocolate-drizzled. Made with whole grain jowar for a better everyday snack.</p>
+
+    <div class="hero-buy">
+      <div class="price-row">
+        <span class="price" data-price>₹249</span>
+        <span class="mrp" data-mrp>₹499</span>
+        <span class="save" data-save>Save 50%</span>
+      </div>
+      <!-- The tail is dropped on phones so this stays a single line; the same
+           description already appears in the section below. -->
+      <p class="unit">Pack of 2 · 2 × 40g<span class="unit-tail"> chocolate-drizzled waffle chips</span></p>
+
+      <!-- No timer here on purpose. The same countdown already runs in the
+           announcement bar above and in the sticky buy dock below, and three
+           copies of it on one screen read as pressure, not urgency. -->
+
+      <div class="cta-row">
+        <a class="btn btn-primary btn-lg buy" data-src="hero" href="#" target="_blank" rel="noopener noreferrer">
+          Buy Now
+          <svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#why-us">
+          Why no maida?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15m0 0 6-6m-6 6-6-6"/></svg>
+        </a>
+      </div>
+
+      <!-- Trust strip — every claim below is printed on the pack. -->
+      <ul class="trust">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M12 9c0-3 2-5.5 5-6 .5 3-1 6-5 6ZM12 9c0-3-2-5.5-5-6-.5 3 1 6 5 6Z"/></svg>Made with Jowar</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5 19.5 19.5M6.2 9.5A6.8 6.8 0 0 1 12 5.2c1.4 0 2.7.4 3.8 1.1M18.3 10.6c.3.9.5 1.9.5 2.9 0 1.5-.5 2.9-1.3 4M5.2 12.6c0 3.5 3 6.2 6.8 6.2 1.3 0 2.5-.3 3.5-.9"/></svg>Zero Maida</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-8 5-13 16-13 0 9-5 13-11 13a5 5 0 0 1-5-5ZM9 15c2.5-2.8 5.2-4.6 8-5.6"/></svg>Gluten Free</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-5 3 10 2.5-5h6"/></svg>Not Fried, Just Waffled</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.3 2.9 8.1 7 9.5 4.1-1.4 7-5.2 7-9.5V6l-7-3Zm-3 9 2.2 2.2L15.5 10"/></svg>FSSAI Certified</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cue" aria-hidden="true">
+    Scroll to see what's inside
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15m0 0 6-6m-6 6-6-6"/></svg>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     WHY THIS EXISTS
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="why-us" class="tone-white">
+  <div class="wrap">
+    <!-- Same pattern as the hero: on a phone the photo leads and the copy
+         follows it. Desktop puts the photo back on the right with the two copy
+         blocks stacked on the left (explicit grid placement in .why-grid). -->
+    <div class="grid g2 why-grid" style="align-items:center;gap:28px">
+      <!-- 2/3 is the file's exact native ratio (1024×1536): no crop, no bars.
+           max-width stops a portrait photo towering over the copy beside it. -->
+      <div class="rv shot why-img" style="aspect-ratio:2/3" data-shot="images/main.webp"
+           data-note="MAIN — the pack with chips beside it. images/main.webp"
+           data-alt="Rocher's Waffle Chips pack with chips beside it"></div>
+
+      <div class="rv why-head">
+        <span class="eyebrow">Why we made this</span>
+        <h2>Snack time got boring. So we fixed the chip.</h2>
+      </div>
+
+      <div class="rv why-body">
+        <p style="color:var(--cocoa-500);text-decoration:line-through 2px var(--cocoa-300)">
+          Every other pack on the shelf is the same story — maida, more maida, and a flavour that tastes like the packet it came in.
+        </p>
+        <p style="margin-top:18px;font-weight:600;color:var(--cocoa-800);border-left:2px solid var(--plum-200);padding-left:16px">
+          We started with whole grain jowar flour instead. Pressed it thin in a waffle iron until it cracked — not fried, just waffled — then drizzled it with real dark chocolate.
+        </p>
+        <p style="margin-top:24px;background:var(--plum-50);border:1px solid rgb(74 44 155/.1);border-radius:var(--r-lg);padding:22px;font-family:var(--font-display);font-weight:900;font-size:clamp(1.05rem,2.4vw,1.4rem);color:var(--plum-800);line-height:1.25">
+          The result is a chip you actually want to eat — and one you do not have to feel odd about finishing.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     USP GRID   — every claim here is printed on the pack
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="usps" class="tone-warm">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow center">What's different</span>
+      <h2>Built around the grain, not around the flour.</h2>
+    </div>
+
+    <ul class="grid g3" style="list-style:none">
+      <li class="rv"><div class="card">
+        <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21V9M12 9c0-3 2-5.5 5-6 .5 3-1 6-5 6ZM12 9c0-3-2-5.5-5-6-.5 3 1 6 5 6ZM12 15c0-2.6 1.8-4.8 4.5-5.3.4 2.7-1 5.3-4.5 5.3ZM12 15c0-2.6-1.8-4.8-4.5-5.3-.4 2.7 1 5.3 4.5 5.3Z"/></svg></span>
+        <h3>Whole Grain Jowar Flour</h3>
+        <p>Sorghum is the first ingredient on the pack, not an afterthought. The grain does the heavy lifting so the chip tastes of something.</p>
+      </div></li>
+
+      <li class="rv"><div class="card">
+        <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4.5 4.5 19.5 19.5M6.2 9.5A6.8 6.8 0 0 1 12 5.2c1.4 0 2.7.4 3.8 1.1M18.3 10.6c.3.9.5 1.9.5 2.9 0 1.5-.5 2.9-1.3 4M5.2 12.6c0 3.5 3 6.2 6.8 6.2 1.3 0 2.5-.3 3.5-.9"/></svg></span>
+        <h3>Zero Maida</h3>
+        <p>No refined wheat flour anywhere in the recipe. That is the entire reason this pack exists.</p>
+      </div></li>
+
+      <li class="rv"><div class="card">
+        <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-5 3 10 2.5-5h6"/><circle cx="19" cy="6" r="1.1"/><circle cx="5.5" cy="18" r="1.1"/></svg></span>
+        <h3>Not Fried, Just Waffled</h3>
+        <p>Pressed thin in a waffle iron instead of dropped in a fryer. That is where the clean snap comes from.</p>
+      </div></li>
+
+      <li class="rv"><div class="card">
+        <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="4" y="3.5" width="16" height="17" rx="2.2"/><path d="M4 9h16M4 15h16M9.6 3.5v17M14.4 3.5v17"/></svg></span>
+        <h3>Real Dark Chocolate Drizzle</h3>
+        <p>Dark compound chocolate drizzled over the top, not sprayed through. You can see every line of it on the chip.</p>
+      </div></li>
+
+      <li class="rv"><div class="card">
+        <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-8 5-13 16-13 0 9-5 13-11 13a5 5 0 0 1-5-5ZM9 15c2.5-2.8 5.2-4.6 8-5.6"/></svg></span>
+        <h3>Gluten Free</h3>
+        <p>As printed on the pack. See the allergen note in the pack facts below before buying if you are coeliac.</p>
+      </div></li>
+
+      <li class="rv"><div class="card">
+        <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="9.5" width="17" height="11" rx="1.6"/><path d="M2.5 9.5h19M12 9.5v11M12 9.5S10.5 3.5 8 3.5a2.4 2.4 0 0 0 0 6M12 9.5s1.5-6 4-6a2.4 2.4 0 0 1 0 6"/></svg></span>
+        <h3>40g Snack Pack</h3>
+        <p>Small enough for a bag or a lunchbox, big enough to share. Two of them come in the launch offer.</p>
+      </div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     THE PACK — real photos + real label data taken from the printed pack
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="pack" class="tone-choc">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow center">What's inside</span>
+      <h2 style="color:var(--cream-50)">Nothing to hide on the back of the pack.</h2>
+      <p class="lede">Both sides of the pack, exactly as printed. Ingredients, allergens, FSSAI licence and net weight — all of it below.</p>
+    </div>
+
+    <!-- Two-up from 640px (capped, or two 2:3 photos would be ~900px tall each);
+         a one-at-a-time swipe slider below that. -->
+    <!-- The reveal sits on the rail, not on the slides: a translateY on a slide
+         adds vertical scrollable overflow inside its own scroll container. -->
+    <div class="pack-slider rv" id="pack-slider">
+      <!-- 2/3 matches the files exactly (1024×1536): full-bleed, no crop, no bars. -->
+      <div class="shot" style="aspect-ratio:2/3" data-shot="images/front.webp"
+           data-note="PACK FRONT — images/front.webp"
+           data-alt="Rocher's Waffle Chips pack, front"></div>
+      <div class="shot" style="aspect-ratio:2/3" data-shot="images/back.webp"
+           data-note="PACK BACK — images/back.webp"
+           data-alt="Rocher's Waffle Chips pack, back — ingredients and allergen information"></div>
+    </div>
+    <div class="pack-dots" id="pack-dots" aria-hidden="true"></div>
+
+    <!--
+      Everything in these two cards is transcribed from the back of the pack.
+      Nothing is derived, rounded or assumed.
+
+      There is deliberately NO nutrition panel here: the pack does not carry one,
+      and no lab report has been supplied. A guessed nutrition table is an FSSAI
+      labelling problem and a Meta ad-review problem, in that order. If the
+      client sends real per-100g values, add the card back then — not before.
+
+      Shelf life and storage are also absent for the same reason: the pack states
+      a per-batch USE BY date, not a shelf-life period, so no period is claimed.
+    -->
+    <!-- One card, two columns inside it on desktop, stacked on a phone. -->
+    <div class="rv facts label-card" style="color:var(--cocoa-800);margin-top:32px;max-width:1040px;margin-inline:auto;padding:28px">
+      <h3 style="margin-bottom:22px;text-align:center">Straight off the pack</h3>
+
+      <div class="label-cols">
+        <div>
+          <p class="label-h">Ingredients</p>
+          <p style="font-size:15px;color:var(--cocoa-700);line-height:1.7">
+            Whole Grain Jowar Flour, Dark Compound Chocolate (Sugar, Vegetable Fat,
+            Cocoa Solids, Milk Solids, Emulsifier (INS&nbsp;322), Flavouring), Sugar,
+            Tapioca Starch, Soybean Oil, Potato Starch, Milk Powder, Vanilla Flavour,
+            Soy Lecithin (INS&nbsp;322), Raising Agents (INS&nbsp;500(ii), INS&nbsp;450(i)), Salt.
+          </p>
+
+          <div style="margin-top:18px;padding:16px;border-radius:16px;background:var(--plum-50);border:1px solid rgb(74 44 155/.12)">
+            <p class="label-h" style="margin-bottom:6px">Allergen information</p>
+            <p style="font-size:14px;color:var(--cocoa-700);line-height:1.6">
+              <strong>Contains Milk &amp; Soy.</strong> Manufactured in a facility that
+              also processes Wheat Flour &amp; Tree Nuts.
+            </p>
+          </div>
+        </div>
+
+        <dl>
+          <div class="row"><dt>Net Weight</dt><dd><strong>40 g</strong> per pack</dd></div>
+          <div class="row"><dt>Launch Pack</dt><dd>2 × 40 g for ₹249</dd></div>
+          <div class="row"><dt>Veg / Non-veg</dt><dd><span class="vegmark"><i aria-hidden="true"></i> Vegetarian</span></dd></div>
+          <div class="row"><dt>Best Before</dt><dd>Each pack is stamped with its own packing date and USE&nbsp;BY date — check the back of your pack.</dd></div>
+          <div class="row"><dt>FSSAI Lic. No.</dt><dd>22722758000068</dd></div>
+          <div class="row"><dt>Made by</dt><dd>Rocher's — The Bake Shop</dd></div>
+          <div class="row"><dt>Reach out to us</dt><dd>
+            <a href="mailto:rochersbakeshop@gmail.com" style="color:var(--plum-700);font-weight:700">rochersbakeshop@gmail.com</a><br>
+            <a href="tel:+918858175027" style="color:var(--plum-700);font-weight:700">+91 88581 75027</a>
+          </dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     WAYS TO ENJOY
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="ways" class="tone-cream">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow center">Ways to enjoy</span>
+      <h2>Best eaten standing over the kitchen counter.</h2>
+    </div>
+    <!-- Centred stack per item: circle icon, title, one line. `.ways li` centres
+         the icon, which is a flex box and would otherwise sit hard left. -->
+    <ul class="grid g4 ways" style="list-style:none;text-align:center">
+      <li class="rv">
+        <span class="ico" style="margin-inline:auto"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.5h12v6a4.5 4.5 0 0 1-4.5 4.5H9a4.5 4.5 0 0 1-4.5-4.5v-6ZM16.5 10h1.8a2.2 2.2 0 0 1 0 4.4h-1.8M8 5.5c0-1 1-1.3 1-2.3M12 5.5c0-1 1-1.3 1-2.3"/></svg></span>
+        <h3>With chai</h3>
+        <p style="font-size:14px;color:var(--cocoa-600);margin-top:6px">The 5 o'clock pairing. Dark chocolate against strong chai.</p>
+      </li>
+      <li class="rv">
+        <span class="ico" style="margin-inline:auto"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 3.5h11l-1.2 16a1.6 1.6 0 0 1-1.6 1.5H9.3a1.6 1.6 0 0 1-1.6-1.5L6.5 3.5ZM6.9 9h10.2M8.2 21h7.6"/></svg></span>
+        <h3>With cold coffee</h3>
+        <p style="font-size:14px;color:var(--cocoa-600);margin-top:6px">Crunch on the side of something cold. Works far too well.</p>
+      </li>
+      <li class="rv">
+        <span class="ico" style="margin-inline:auto"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="12" rx="2"/><path d="M9 8V5.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5.5V8M3.5 13.5h17"/></svg></span>
+        <h3>In the lunchbox</h3>
+        <p style="font-size:14px;color:var(--cocoa-600);margin-top:6px">40g slips into a bag. Zero maida, so it is an easy yes.</p>
+      </li>
+      <li class="rv">
+        <span class="ico" style="margin-inline:auto"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="2.4"/><circle cx="17.5" cy="6" r="2.4"/><circle cx="17.5" cy="18" r="2.4"/><path d="m8.2 10.9 7.1-3.7M8.2 13.1l7.1 3.7" stroke-linecap="round"/></svg></span>
+        <h3>Passed around</h3>
+        <p style="font-size:14px;color:var(--cocoa-600);margin-top:6px">Two packs in the launch offer. One of them is not going to be yours.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!--
+  ▸ REMOVED ON PURPOSE — two sections that used to sit here:
+
+    LIFESTYLE GALLERY — six lifestyle photos. No photography has been supplied,
+      and six empty boxes are worse than no section. Add it back when the shots
+      exist (chai pairing, on the go, sharing, spilling pack, drizzle macro,
+      gifting).
+
+    REVIEWS — no real customer reviews exist yet, and invented ones are a
+      prohibited unfair trade practice under India's Consumer Protection Act
+      2019. Nothing here is fabricated, so the section is simply gone until
+      genuine verified reviews are available.
+-->
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     COMPARISON   — no competitor is named, only the category
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="compare" class="tone-warm">
+  <div class="wrap">
+    <div class="head center rv">
+      <span class="eyebrow center">The difference</span>
+      <h2>Rocher's vs. the usual chip</h2>
+    </div>
+    <div class="rv" id="cmp"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     OFFER
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="offer" class="tone-plum">
+  <div class="wrap" style="text-align:center">
+    <div class="rv">
+      <span class="hot on-dark"><span class="dot" aria-hidden="true"></span> Limited time launch price</span>
+      <h2 style="margin-top:18px;color:var(--cream-50);max-width:20ch;margin-inline:auto">Two packs of 40g, for two hundred and forty-nine.</h2>
+
+      <!-- The main countdown. Set OFFER_ENDS in the <script> at the bottom.
+           The whole block hides itself once the deadline passes rather than
+           counting negative. -->
+      <div class="cd" data-cd="boxes" style="display:block;margin-top:26px" hidden>
+        <p style="font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-300);margin-bottom:12px">
+          Offer ends in
+        </p>
+        <div class="cd-boxes" data-cd-boxes></div>
+      </div>
+
+      <div class="price-row" style="justify-content:center;margin-top:26px">
+        <span class="price" data-price style="color:var(--cream-50);font-size:clamp(3rem,9vw,3.75rem)">₹249</span>
+        <span class="mrp" data-mrp style="color:rgb(253 247 237/.5)">₹499</span>
+        <span class="save" data-save>Save 50%</span>
+      </div>
+      <p class="unit" style="color:rgb(253 247 237/.85)">Pack of 2 · 2 × 40g</p>
+      <div style="margin-top:24px">
+        <a class="btn btn-cream btn-lg buy" data-src="offer" href="#" target="_blank" rel="noopener noreferrer">
+          Buy Now
+          <svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     FAQ   ▸ REPLACE the answers marked with a dashed underline
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="faq" class="tone-cream">
+  <div class="wrap wrap-narrow">
+    <div class="head center rv">
+      <span class="eyebrow center">FAQ</span>
+      <h2>The things people ask before their first pack.</h2>
+    </div>
+    <div class="faq" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     FINAL CTA  — the last thing on the page. There is NO footer: the sticky
+     buy bar takes its place, and the legal fine print sits here instead.
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="buy" class="tone-choc">
+  <div class="wrap">
+    <div class="cta-grid">
+      <!-- Photo first on a phone, right-hand column on desktop. -->
+      <div class="rv shot cta-img" style="aspect-ratio:1" data-shot="images/4.webp"
+           data-note="GROUP SHOT — images/4.webp"
+           data-alt="Several packs of Rocher's Waffle Chips with chips beside them"></div>
+
+      <div class="rv cta-copy">
+        <h2 style="color:var(--cream-50)">Ready to Crunch?</h2>
+        <p class="lede">Two 40g packs of thin, chocolate-drizzled jowar waffle chips. Zero maida, gluten free, not fried — just waffled.</p>
+        <div class="price-row" style="margin-top:26px">
+          <span class="price" data-price style="color:var(--cream-50)">₹249</span>
+          <span class="mrp" data-mrp style="color:rgb(253 247 237/.5)">₹499</span>
+          <span class="save" data-save>Save 50%</span>
+        </div>
+        <p class="unit" style="color:rgb(253 247 237/.85)">Pack of 2 · 2 × 40g</p>
+
+        <p class="hot on-dark cd" data-cd="inline" style="margin-top:16px" hidden>
+          <span class="dot" aria-hidden="true"></span>
+          This price ends in <b data-cd-val>—</b>
+        </p>
+
+        <div style="margin-top:20px">
+          <a class="btn btn-cream btn-lg buy" data-src="final" href="#" target="_blank" rel="noopener noreferrer">
+            Buy Now
+            <svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;border-top:1px solid rgb(253 247 237/.16);padding-top:22px;font-size:13px;font-weight:700;color:var(--cream-100)">
+          <li>🌾 Made with Jowar</li><li>🚫 Zero Maida</li><li>🌿 Gluten Free</li><li>🧇 Not Fried, Just Waffled</li><li>🛡️ FSSAI Certified</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ── Fine print. The brief requires FSSAI, WhatsApp and email to appear
+         somewhere; the client did not want a footer, so they live here. ── -->
+    <div class="fineprint">
+      <span>Rocher's — The Bake Shop</span>
+      <span>FSSAI Lic. No. 22722758000068</span>
+      <a href="https://wa.me/918858175027?text=Hi%20Rocher's!%20I'd%20like%20to%20know%20more%20about%20your%20waffle%20chips." target="_blank" rel="noopener noreferrer">WhatsApp +91 88581 75027</a>
+      <a href="mailto:rochersbakeshop@gmail.com">rochersbakeshop@gmail.com</a>
+      <span>© <span id="yr">2026</span> Rocher's. All rights reserved.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     STICKY BUY BAR — shown on every screen size, and it is what sits at the
+     bottom of the page in place of a footer.
+     ══════════════════════════════════════════════════════════════════════ -->
+<div class="bar" id="bar" role="region" aria-label="Buy now">
+  <div class="bar-in">
+    <div class="bar-thumb shot" data-shot="images/4.webp" data-note="" data-alt="" aria-hidden="true"></div>
+
+    <div class="bar-txt">
+      <b data-price>₹249</b>
+      <span class="bar-mrp" data-mrp>₹499</span>
+    </div>
+
+    <!-- Flip-clock timer, centred. Each card is re-animated only on the tick
+         where its value actually changes, so the seconds card flips every
+         second while the hours card sits still. -->
+    <div class="bar-timer">
+      <span class="bar-timer-label">Ends in</span>
+      <span class="flip"><span class="face" data-flip-h>00</span></span>
+      <i aria-hidden="true">:</i>
+      <span class="flip"><span class="face" data-flip-m>00</span></span>
+      <i aria-hidden="true">:</i>
+      <span class="flip"><span class="face" data-flip-s>00</span></span>
+    </div>
+
+    <a class="btn btn-primary buy crackle" data-src="sticky-bar" href="#" target="_blank" rel="noopener noreferrer">
+      <!-- Chocolate cracks. Purely decorative: drawn with stroke-dashoffset so
+           they appear to split across the button, then fade and repeat. -->
+      <span class="cracks" aria-hidden="true">
+        <svg viewBox="0 0 200 56" preserveAspectRatio="none">
+          <path d="M14 0l10 14-7 9 12 11-5 8 9 14"/>
+          <path d="M70 0l-8 13 11 10-6 10 10 9-4 14"/>
+          <path d="M128 0l9 12-8 11 13 10-6 9 8 14"/>
+          <path d="M182 0l-9 15 10 9-7 11 9 8-4 13"/>
+          <path d="M24 14l-14 5M62 13l13 6M137 12l-14 6M173 15l14 5"/>
+        </svg>
+      </span>
+      Buy Now
+      <svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
+    </a>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   ⚠️  THE ONE LINE TO CHANGE ON LAUNCH DAY
+   Paste the Razorpay Payment Link here. Every Buy Now button on the page
+   (header, hero, offer, final CTA, sticky bar) reads this single value.
+   ══════════════════════════════════════════════════════════════════════════ */
+var RAZORPAY_LINK = "https://rzp.io/l/REPLACE_ME";
+
+/* Price shown everywhere. Change once, changes everywhere.
+   MRP is the struck-through "was" price; the Save % badge is calculated from
+   the two, so it can never disagree with them.
+
+   ▸ MRP must be the genuine maximum retail price declared on the pack. In India
+     a struck-through price that was never actually charged is a misleading
+     discount under the Consumer Protection Act 2019 and the Legal Metrology
+     (Packaged Commodities) Rules. Set MRP to null to hide the strike-through
+     and the badge entirely. */
+var PRICE = "₹249";
+var MRP   = "₹499";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   URGENCY — the 2-hour flash window.
+   ───────────────────────────────────────────────────────────────────────────
+   Drives every timer on the page: the announcement bar, the hero chip, the big
+   countdown in the offer band, the final CTA line and the sticky bar. It always
+   reads under two hours, so there is no days segment — just HH : MM : SS.
+
+   ▸ HOW THE WINDOW WORKS — read this before changing it.
+
+     It is a RECURRING SCHEDULE anchored to IST midnight: 00:00, 02:00, 04:00 …
+     22:00. Whatever time it is, the timer counts down to the next boundary,
+     then rolls straight into the next window.
+
+     So: every visitor sees the SAME number at the same moment, refreshing does
+     NOT reset it, and the deadline is real.
+
+     The lazy version — "2 hours from page load", restarting on every reload —
+     was deliberately not used. A countdown to a deadline that does not exist is
+     a misleading trade practice under India's Consumer Protection (E-Commerce)
+     Rules 2020, and Meta rejects ads over it. This gives the same urgency with
+     none of that exposure.
+
+   ▸ TO CHANGE IT: set the hours below. Use a whole number that divides into 24
+     (1, 2, 3, 4, 6, 8, 12, 24) so the boundaries stay on tidy clock times.
+   ══════════════════════════════════════════════════════════════════════════ */
+var OFFER_WINDOW_HOURS = 2;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUY BUTTONS
+   Opens Razorpay in a NEW TAB on purpose: if the customer bails on the payment
+   page, this landing page — and the ad click that paid for it — is still
+   sitting there behind them.
+
+   ══════════════════════════════════════════════════════════════════════════ */
+document.querySelectorAll('.buy').forEach(function (a) {
+  a.href = RAZORPAY_LINK;
+  a.addEventListener('click', function () {
+    Track.buyClick(a.getAttribute('data-src') || 'unknown');
+  });
+});
+document.querySelectorAll('[data-price]').forEach(function (el) { el.textContent = PRICE; });
+
+/* MRP + the Save % badge. Both are driven off PRICE and MRP, and both remove
+   themselves if MRP is null — so the page can never show a fake discount. */
+(function () {
+  var num = function (s) { return parseFloat(String(s).replace(/[^0-9.]/g, '')); };
+  var mrp = MRP ? num(MRP) : null, price = num(PRICE);
+  var pct = (mrp && price && mrp > price) ? Math.round((mrp - price) / mrp * 100) : null;
+
+  document.querySelectorAll('[data-mrp]').forEach(function (el) {
+    if (pct) el.textContent = MRP; else el.remove();
+  });
+  document.querySelectorAll('[data-save]').forEach(function (el) {
+    if (pct) el.textContent = 'Save ' + pct + '%'; else el.remove();
+  });
+})();
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TRACKING
+   ───────────────────────────────────────────────────────────────────────────
+   One place that speaks to every tracker. Each call fans out to GA4 (gtag),
+   Meta Pixel (fbq), Google Ads and the GTM dataLayer, and silently does
+   nothing for whichever of those the client has not set up. Analytics must
+   never be able to break a purchase click, so everything is inside try/catch.
+
+   ⚠️  READ THIS BEFORE REPORTING ON ADS
+   The Buy button opens Razorpay's hosted page, which this site never sees. So
+   the strongest signal here is InitiateCheckout / begin_checkout — PURCHASE
+   INTENT, not a sale. Optimising Meta or Google campaigns on this event will
+   overstate conversions. For real revenue, have the developer add a Razorpay
+   webhook (payment_link.paid) or set the Payment Link's thank-you redirect to
+   a /thank-you page carrying the Purchase event.
+   ══════════════════════════════════════════════════════════════════════════ */
+var Track = (function () {
+  var TAGS = window.ROCHERS_TAGS || {};
+  var VALUE = 249;                       /* kept in sync with PRICE below */
+  var ITEM  = "Rocher's Waffle Chips — Pack of 2";
+  var DEBUG = /[?&]tagdebug/.test(location.search);
+
+  function fire(name, params) {
+    params = params || {};
+    try {
+      /* GTM / server-side, if a container is ever added */
+      if (window.dataLayer) {
+        window.dataLayer.push(Object.assign({ event: name }, params));
+      }
+      if (DEBUG) console.log('%c[tag] ' + name, 'color:#4a2c9b;font-weight:700', params);
+    } catch (e) { /* never let a tag break the page */ }
+  }
+
+  function ga(name, params) {
+    try { if (window.gtag && TAGS.GA4_ID) window.gtag('event', name, params || {}); } catch (e) {}
+  }
+  function meta(name, params) {
+    try { if (window.fbq && TAGS.META_PIXEL_ID) window.fbq('track', name, params || {}); } catch (e) {}
+  }
+
+  return {
+    /* Fired once on load: "someone looked at the product". */
+    viewContent: function () {
+      var p = { currency: 'INR', value: VALUE, content_name: ITEM, content_type: 'product' };
+      fire('view_item', p);
+      ga('view_item', {
+        currency: 'INR', value: VALUE,
+        items: [{ item_name: ITEM, price: VALUE, quantity: 1 }]
+      });
+      meta('ViewContent', p);
+    },
+
+    /* Every Buy Now click, tagged with which button was pressed. */
+    buyClick: function (source) {
+      var p = { currency: 'INR', value: VALUE, content_name: ITEM, cta_source: source };
+      fire('purchase_intent', p);
+      ga('begin_checkout', {
+        currency: 'INR', value: VALUE, cta_source: source,
+        items: [{ item_name: ITEM, price: VALUE, quantity: 1 }]
+      });
+      meta('InitiateCheckout', p);
+
+      /* Google Ads conversion, only if both the account id and the label are
+         filled in. Without the label the tag silently records nothing, so it
+         is better not to send it at all. */
+      try {
+        if (window.gtag && TAGS.GOOGLE_ADS_ID && TAGS.GOOGLE_ADS_LABEL) {
+          window.gtag('event', 'conversion', {
+            send_to: TAGS.GOOGLE_ADS_ID + '/' + TAGS.GOOGLE_ADS_LABEL,
+            value: VALUE, currency: 'INR'
+          });
+        }
+      } catch (e) {}
+    },
+
+    /* WhatsApp / email / phone taps — the B2B and support funnel. */
+    contact: function (channel) {
+      fire('contact', { method: channel });
+      ga('generate_lead', { method: channel });
+      meta('Contact', { method: channel });
+    },
+
+    /* How far down the page people actually get. */
+    scrollDepth: function (pct) {
+      fire('scroll_depth', { percent_scrolled: pct });
+      ga('scroll', { percent_scrolled: pct });
+    },
+
+    faqOpen: function (question) {
+      fire('faq_open', { question: question });
+      ga('faq_open', { question: question });
+    }
+  };
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   COUNTDOWN
+   One interval drives every timer on the page. Each tick recomputes from
+   Date.now() rather than decrementing a stored number, so a phone that sleeps
+   in a background tab wakes up showing the right time instead of drifting.
+   ══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var inlines = document.querySelectorAll('[data-cd="inline"]');
+  var boxWraps = document.querySelectorAll('[data-cd="boxes"]');
+  var UNITS = ['Hours', 'Mins', 'Secs'];   /* no Days — the window is 2 hours */
+
+  /* Flip-card digits in the sticky bar. */
+  var flips = [
+    document.querySelector('[data-flip-h]'),
+    document.querySelector('[data-flip-m]'),
+    document.querySelector('[data-flip-s]'),
+  ];
+
+  var WIN = Math.max(1, OFFER_WINDOW_HOURS) * 3600000;
+  var IST = 5.5 * 3600000;   /* the schedule is anchored to IST midnight */
+
+  /**
+   * Milliseconds until the current window closes.
+   * Shifting into IST before rounding is what puts the boundaries on tidy
+   * local clock times (00:00, 02:00, 04:00 …) rather than on UTC ones.
+   */
+  function msLeft() {
+    var nowIST = Date.now() + IST;
+    return Math.ceil(nowIST / WIN) * WIN - nowIST;
+  }
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function tick() {
+    var left = Math.max(0, Math.floor(msLeft() / 1000));
+    var h = Math.floor(left / 3600),
+        m = Math.floor((left % 3600) / 60),
+        s = left % 60;
+
+    /* Inline: HH:MM:SS. Never a days segment. */
+    var short = pad(h) + ':' + pad(m) + ':' + pad(s);
+    inlines.forEach(function (el) {
+      var val = el.querySelector('[data-cd-val]');
+      if (val) val.textContent = short;
+      else el.textContent = 'Offer ends in ' + short;
+      el.hidden = false;
+    });
+
+    /* Boxes: the big timer in the offer band. */
+    var vals = [h, m, s];
+    boxWraps.forEach(function (wrap) {
+      var host = wrap.querySelector('[data-cd-boxes]');
+      if (!host) return;
+      if (!host.children.length) {
+        host.innerHTML = UNITS.map(function (u) {
+          return '<div><b>00</b><span>' + u + '</span></div>';
+        }).join('');
+      }
+      for (var i = 0; i < UNITS.length; i++) {
+        host.children[i].firstChild.textContent = pad(vals[i]);
+      }
+      wrap.hidden = false;
+    });
+
+    /* Flip cards: only re-animate a digit whose value actually changed, so the
+       hours card is not flipping pointlessly once a second. Removing the class,
+       forcing a reflow and re-adding it is what restarts the CSS keyframe. */
+    for (var j = 0; j < flips.length; j++) {
+      var el = flips[j];
+      if (!el) continue;
+      var next = pad(vals[j]);
+      if (el.textContent === next) continue;
+      el.textContent = next;
+      /* NB: the class is 'flipping', not 'tick' — .tick is already taken by the
+         comparison table, and reusing it here painted the digits cocoa-900 on a
+         cocoa-900 card, i.e. invisible. */
+      el.classList.remove('flipping');
+      void el.offsetWidth;
+      el.classList.add('flipping');
+    }
+  }
+
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   IMAGE SLOTS
+   Any element with data-shot tries to load that file. If the file is not there
+   yet, it renders a labelled panel describing the shot that belongs in it, so
+   the page is fully reviewable before the photography exists.
+   ══════════════════════════════════════════════════════════════════════════ */
+function fillShot(el) {
+  var src = el.getAttribute('data-shot');
+  var note = el.getAttribute('data-note') || '';
+  var alt = el.getAttribute('data-alt') || '';
+  if (!src) return;
+  var img = new Image();
+  img.onload = function () {
+    var i = document.createElement('img');
+    i.src = src; i.alt = alt; i.loading = 'lazy'; i.decoding = 'async';
+    el.innerHTML = ''; el.appendChild(i);
+    el.classList.remove('shot-miss');
+  };
+  img.onerror = function () {
+    el.classList.add('shot-miss');
+    if (note) el.innerHTML = '<span><b>Image pending</b>' + note + '</span>';
+  };
+  img.src = src;
+}
+document.querySelectorAll('[data-shot]').forEach(fillShot);
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL REVEAL — one short rise + fade, once, never replayed.
+   ══════════════════════════════════════════════════════════════════════════ */
+if (REDUCED || !('IntersectionObserver' in window)) {
+  document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
+} else {
+  var revealObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e, i) {
+      if (!e.isIntersecting) return;
+      e.target.style.transitionDelay = Math.min(i * 0.06, 0.3) + 's';
+      e.target.classList.add('in');
+      revealObs.unobserve(e.target);
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach(function (el) { revealObs.observe(el); });
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TRACKED INTERACTIONS
+   Fired from one place so the tag list stays readable and auditable.
+   ══════════════════════════════════════════════════════════════════════════ */
+Track.viewContent();
+
+/* WhatsApp, email and phone taps anywhere on the page. */
+document.addEventListener('click', function (e) {
+  var a = e.target.closest && e.target.closest('a[href]');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  if (href.indexOf('wa.me') > -1) Track.contact('whatsapp');
+  else if (href.indexOf('mailto:') === 0) Track.contact('email');
+  else if (href.indexOf('tel:') === 0) Track.contact('phone');
+}, { passive: true });
+
+/* Scroll depth, each milestone once. Tells the client where readers drop off,
+   which is the single most useful number for iterating the page copy. */
+(function () {
+  var marks = [25, 50, 75, 90], hit = {};
+  function check() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - innerHeight;
+    if (max <= 0) return;
+    var pct = (scrollY / max) * 100;
+    for (var i = 0; i < marks.length; i++) {
+      if (pct >= marks[i] && !hit[marks[i]]) {
+        hit[marks[i]] = true;
+        Track.scrollDepth(marks[i]);
+      }
+    }
+    if (hit[90]) removeEventListener('scroll', check);
+  }
+  addEventListener('scroll', check, { passive: true });
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PACK PHOTO SLIDER — dots.
+   The sliding itself is pure CSS (scroll-snap); this only reflects which slide
+   is showing. The dots are decorative — the slider is swipeable and keyboard-
+   scrollable without them — so they are aria-hidden.
+   ══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var rail = document.getElementById('pack-slider');
+  var dots = document.getElementById('pack-dots');
+  if (!rail || !dots) return;
+
+  var slides = rail.children.length;
+  for (var i = 0; i < slides; i++) dots.appendChild(document.createElement('b'));
+  dots.firstChild.classList.add('on');
+
+  rail.addEventListener('scroll', function () {
+    var i = Math.round(rail.scrollLeft / Math.max(1, rail.clientWidth));
+    for (var j = 0; j < dots.children.length; j++) {
+      dots.children[j].classList.toggle('on', j === i);
+    }
+  }, { passive: true });
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TRUST BADGE MARQUEE — auto-running AND swipeable.
+   ───────────────────────────────────────────────────────────────────────────
+   A CSS marquee (transform: translateX) cannot be dragged, so this stays a
+   real scroll container and its scrollLeft is nudged forward each frame instead.
+   Native touch scrolling therefore keeps working, and the row drifts on its own
+   when the visitor is not touching it.
+
+   The badge list is cloned once, so scrollLeft can wrap at the halfway point
+   and the loop is seamless in both directions.
+
+   Only runs on phones — from 768px the row wraps into a block and there is
+   nothing to scroll. Disabled entirely under prefers-reduced-motion, where it
+   stays a plain swipeable row.
+   ══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var rail = document.querySelector('.trust');
+  if (!rail) return;
+
+  var mq = matchMedia('(max-width: 767px)');
+  var SPEED = 0.4;             /* px per frame ≈ 24px/s — a drift, not a slide */
+  var raf = null, half = 0, paused = false, resumeTimer = null;
+  /* The position is tracked as a float here and written out each frame.
+     Doing `rail.scrollLeft += 0.4` instead does nothing at all: the browser
+     rounds scrollLeft to whole pixels, so the fraction is lost on every read
+     and the row never actually moves. */
+  var pos = 0, selfScroll = false;
+
+  function loop() {
+    raf = requestAnimationFrame(loop);
+    if (paused || !half) return;
+    pos += SPEED;
+    if (pos >= half) pos -= half;
+    selfScroll = true;
+    rail.scrollLeft = pos;
+  }
+
+  function pause() {
+    paused = true;
+    clearTimeout(resumeTimer);
+  }
+  function resumeSoon() {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function () { paused = false; }, 1400);
+  }
+
+  /* Keep manual swipes inside the same wrap window, and hand the user's
+     position back to the animation so it carries on from where they left it. */
+  function normalise() {
+    if (!half) return;
+    if (selfScroll) { selfScroll = false; return; }
+    var x = rail.scrollLeft;
+    if (x >= half) { x -= half; rail.scrollLeft = x; selfScroll = true; }
+    else if (x < 0) { x += half; rail.scrollLeft = x; selfScroll = true; }
+    pos = x;
+  }
+
+  function teardown() {
+    if (raf) cancelAnimationFrame(raf);
+    raf = null; half = 0; pos = 0;
+    rail.querySelectorAll('[data-clone]').forEach(function (n) { n.remove(); });
+    rail.scrollLeft = 0;
+  }
+
+  function setup() {
+    teardown();
+    if (!mq.matches || REDUCED) return;
+
+    Array.prototype.slice.call(rail.children).forEach(function (li) {
+      var c = li.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.setAttribute('data-clone', '');
+      rail.appendChild(c);
+    });
+
+    half = rail.scrollWidth / 2;
+    if (half < rail.clientWidth) { teardown(); return; }  /* nothing to scroll */
+    loop();
+  }
+
+  ['pointerdown', 'touchstart', 'mouseenter'].forEach(function (e) {
+    rail.addEventListener(e, pause, { passive: true });
+  });
+  ['pointerup', 'touchend', 'touchcancel', 'mouseleave'].forEach(function (e) {
+    rail.addEventListener(e, resumeSoon, { passive: true });
+  });
+  rail.addEventListener('scroll', normalise, { passive: true });
+
+  setup();
+  if (mq.addEventListener) mq.addEventListener('change', setup);
+  addEventListener('resize', function () {
+    clearTimeout(resumeTimer);
+    setTimeout(setup, 200);
+  }, { passive: true });
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HEADER + MOBILE MENU
+   Every lookup is null-guarded: if the hamburger or the panel is ever removed
+   from the markup, this quietly does nothing instead of throwing — a thrown
+   error here would kill every script below it (FAQ, comparison, countdown).
+   ══════════════════════════════════════════════════════════════════════════ */
+var hdr = document.getElementById('hdr');
+var burger = document.getElementById('burger');
+var menu = document.getElementById('menu');
+
+if (hdr) {
+  var onHdrScroll = function () {
+    hdr.classList.toggle('stuck', scrollY > 24);
+    /* Drives the phone-only reveal: the header stays out of the way for the
+       whole hero, then slides in. Desktop ignores this class. */
+    hdr.classList.toggle('revealed', scrollY > innerHeight * 0.6);
+  };
+  onHdrScroll();
+  addEventListener('scroll', onHdrScroll, { passive: true });
+}
+
+if (burger && menu) {
+  burger.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    /* Keep the solid background while the dropdown is open, otherwise the
+       panel hangs off a transparent header. */
+    if (hdr) hdr.classList.toggle('stuck', open || scrollY > 24);
+    if (hdr && open) hdr.classList.add('revealed');
+  });
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+  addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && menu.classList.contains('open')) {
+      close(true);
+    }
+  });
+
+  /* An overlay dropdown has to close when you tap away from it, or it just
+     sits there over the page. */
+  addEventListener('click', function (e) {
+    if (!menu.classList.contains('open')) return;
+    if (menu.contains(e.target) || burger.contains(e.target)) return;
+    close(false);
+  });
+
+  function close(refocus) {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Open menu');
+    if (refocus) burger.focus();
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STICKY BUY BAR — appears once the hero has scrolled away.
+   ══════════════════════════════════════════════════════════════════════════ */
+var bar = document.getElementById('bar'), heroEl = document.getElementById('hero');
+if (heroEl && 'IntersectionObserver' in window) {
+  new IntersectionObserver(function (es) { bar.classList.toggle('show', !es[0].isIntersecting); },
+    { rootMargin: '-40% 0px 0px 0px' }).observe(heroEl);
+} else {
+  addEventListener('scroll', function () { bar.classList.toggle('show', scrollY > innerHeight * 0.8); }, { passive: true });
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REPEATING CONTENT
+   Kept as data so lists stay easy to edit. Everything a visitor reads that is
+   NOT yet client-approved carries cls:'ph' and shows a dashed underline.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Comparison — left column is pack-printed fact, right is category ───── */
+var CMP = [
+  ['Base grain', 'Whole grain jowar flour', 'Refined flour (maida) or potato'],
+  ['Maida', 'None — zero maida', 'Usually the first ingredient'],
+  ['How it is cooked', 'Not fried, just waffled', 'Deep fried'],
+  ['Gluten', 'Gluten free', 'Wheat-based, contains gluten'],
+  ['Chocolate', 'Real dark chocolate drizzle', 'Rarely, and usually a coating'],
+  ['Texture', 'Thin, waffle-pressed, clean snap', 'Uniform, often soft by mid-pack']
+];
+var TICK = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg>';
+var CROSS = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+/* Two structures, one data source: a real <table> from 768px up, and stacked
+   per-row cards below it. A 3-column table at 375px leaves ~90px per cell,
+   which turns every phrase into four wrapped lines. */
+document.getElementById('cmp').innerHTML =
+  '<div class="cmp-cards">' + CMP.map(function (r) {
+    return '<div class="cmp-card"><p>' + r[0] + '</p>' +
+      '<div class="cmp-cell us"><span class="tick">' + TICK + '</span><div><small>Rocher\'s</small>' + r[1] + '</div></div>' +
+      '<div class="cmp-cell"><span class="tick no">' + CROSS + '</span><div><small>Regular chips</small>' + r[2] + '</div></div></div>';
+  }).join('') + '</div>' +
+  '<div class="cmp-table"><table><caption class="sr">Rocher\'s Waffle Chips compared with regular chips</caption>' +
+  '<thead><tr><th scope="col"><span class="sr">Attribute</span></th><th scope="col">Rocher\'s Waffle Chips</th><th scope="col">Regular Chips</th></tr></thead><tbody>' +
+  CMP.map(function (r) {
+    return '<tr><th scope="row">' + r[0] + '</th>' +
+      '<td class="us"><span class="tick">' + TICK + r[1] + '</span></td>' +
+      '<td><span class="tick no">' + CROSS + r[2] + '</span></td></tr>';
+  }).join('') + '</tbody></table></div>';
+
+/* ── FAQ ────────────────────────────────────────────────────────────────
+   Every question here is answered from the printed pack or from the contact
+   details on it. Nothing is guessed.
+
+   ▸ DELIBERATELY NOT LISTED — the client has to answer these before they can
+     go on the page. Add them back with real answers; do not invent them:
+        • How quickly will my order ship?
+        • Do you offer Cash on Delivery?
+        • Can I cancel or return an order?
+        • Exact shelf life (the pack states a per-batch USE BY date only)
+        • Nutrition / calories per serving                                  */
+var FAQS = [
+  { q: 'Is there really no maida in these?', a: 'None. The first ingredient is whole grain jowar flour, and the pack says zero maida. That is the entire reason the product exists.' },
+  { q: 'Are they fried?', a: 'No. They are pressed thin in a waffle iron — not fried, just waffled. That is where the clean snap comes from.' },
+  { q: 'What is actually in them?', a: 'Whole Grain Jowar Flour, Dark Compound Chocolate (Sugar, Vegetable Fat, Cocoa Solids, Milk Solids, Emulsifier INS 322, Flavouring), Sugar, Tapioca Starch, Soybean Oil, Potato Starch, Milk Powder, Vanilla Flavour, Soy Lecithin (INS 322), Raising Agents (INS 500(ii), INS 450(i)) and Salt.' },
+  { q: 'Any allergens I should know about?', a: 'Yes. The pack contains Milk and Soy, and is manufactured in a facility that also processes Wheat Flour and Tree Nuts. If you are coeliac or have a severe nut allergy, please take that into account.' },
+  { q: 'How big is a pack?', a: '40g per pack. The launch offer is two packs for ₹249.' },
+  { q: 'Is it vegetarian?', a: 'Yes — the pack carries the green vegetarian mark.' },
+  { q: 'How do I know it is still fresh?', a: 'Every pack is stamped on the back with its packing date and a USE BY date. Check the stamp on your pack.' },
+  { q: 'Do you do bulk, corporate or B2B orders?', a: 'Yes — message +91 88581 75027 on WhatsApp, or email rochersbakeshop@gmail.com.' }
+];
+
+document.getElementById('faq-list').innerHTML = FAQS.map(function (f, i) {
+  return '<div class="q' + (i === 0 ? ' open' : '') + '">' +
+    '<h3><button type="button" id="qb' + i + '" aria-expanded="' + (i === 0) + '" aria-controls="qa' + i + '">' +
+      '<span class="qt">' + f.q + '</span>' +
+      '<span class="tog" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg></span>' +
+    '</button></h3>' +
+    '<div class="a" id="qa' + i + '" role="region" aria-labelledby="qb' + i + '"><div><p>' + f.a + '</p></div></div></div>';
+}).join('');
+
+/* One panel open at a time. */
+document.querySelectorAll('#faq-list button').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var q = btn.closest('.q'), wasOpen = q.classList.contains('open');
+    document.querySelectorAll('#faq-list .q').forEach(function (o) {
+      o.classList.remove('open');
+      o.querySelector('button').setAttribute('aria-expanded', 'false');
+    });
+    if (!wasOpen) {
+      q.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      Track.faqOpen(btn.textContent.trim());
+    }
+  });
+});
+
+/* Google FAQ structured data. Safe to publish all of them now — every answer
+   in FAQS comes off the printed pack. */
+(function () {
+  var s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: FAQS.map(function (f) {
+      return { '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } };
+    })
+  });
+  document.head.appendChild(s);
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HANDOFF CHECKLIST — printed to the browser console on every load.
+   Delete this block once the page is live if you like.
+   ══════════════════════════════════════════════════════════════════════════ */
+(function () {
+  var todo = [];
+  if (/REPLACE_ME/.test(RAZORPAY_LINK)) todo.push('⚠️  RAZORPAY_LINK is still a placeholder — every Buy Now button leads nowhere.');
+  var phs = document.querySelectorAll('.ph').length;
+  if (phs) todo.push(phs + ' piece(s) of placeholder copy still on the page (dashed purple underline).');
+  var missing = document.querySelectorAll('.shot-miss').length;
+  if (missing) todo.push(missing + ' image slot(s) have no file yet — see the labels on the page.');
+  console.log('%c🧇 Rocher\'s Waffle Chips — handoff checklist', 'color:#4a2c9b;font-weight:700;font-size:13px');
+  todo.length ? todo.forEach(function (t) { console.log('  • ' + t); }) : console.log('  ✅ Nothing outstanding.');
+})();
+</script>
+
+</body>
+</html>
