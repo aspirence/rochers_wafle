@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#4A2C9B">
 
 <title>Rocher's Waffle Chips — The Crunch That Finally Said Goodbye to Maida</title>
-<meta name="description" content="Thin. Crispy. Chocolate-drizzled. Made with whole grain jowar. Zero maida, gluten free, not fried — just waffled. 4 packs for ₹449.">
+<meta name="description" content="Thin. Crispy. Chocolate-drizzled. Made with whole grain jowar. Zero maida, gluten free, not fried — just waffled. Pack of 2 for ₹249, Pack of 4 for ₹449.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Rocher's Waffle Chips — Goodbye Maida, Hello Crunch">
-<meta property="og:description" content="Zero maida. Made with jowar. Not fried, just waffled. 4 packs for ₹449.">
+<meta property="og:description" content="Zero maida. Made with jowar. Not fried, just waffled. Pack of 2 for ₹249, Pack of 4 for ₹449.">
 <meta property="og:image" content="images/main.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%234A2C9B'/><g fill='%23E8C692'><rect x='14' y='14' width='10' height='10' rx='3'/><rect x='27' y='14' width='10' height='10' rx='3'/><rect x='40' y='14' width='10' height='10' rx='3'/><rect x='14' y='27' width='10' height='10' rx='3'/><rect x='27' y='27' width='10' height='10' rx='3'/><rect x='40' y='27' width='10' height='10' rx='3'/><rect x='14' y='40' width='10' height='10' rx='3'/><rect x='27' y='40' width='10' height='10' rx='3'/><rect x='40' y='40' width='10' height='10' rx='3'/></g></svg>">
@@ -96,7 +96,8 @@ window.ROCHERS_TAGS = {
   upload it to any host, and it works.
 
   ▸ TO GO LIVE, EDIT TWO THINGS:
-      1. RAZORPAY_LINK — one line, at the top of the <script> at the bottom.
+      1. PACKS — the price / MRP / Razorpay link for each pack size, at the top
+         of the <script> at the bottom. Every Buy Now button reads from it.
       2. Photos live in images/ — main.webp (Why Us), front.webp + back.webp
          (What's Inside), 4.webp (closing section).
 
@@ -438,6 +439,57 @@ h1 .ln{display:block}
 .cta-row{margin-top:26px;display:flex;flex-direction:column;gap:12px}
 @media(min-width:520px){.cta-row{flex-direction:row;align-items:center}}
 
+/* ── Pack buttons ────────────────────────────────────────────────────────
+   Two cards, one per pack size, rendered by JS from PACKS. Each card IS the
+   Buy Now button: the whole thing is one tap. Side by side everywhere except
+   the very narrowest phones, where they stack. */
+.pick{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--cocoa-500)}
+.packs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media(max-width:379px){.packs{grid-template-columns:1fr}}
+.packs-center{max-width:520px;margin-inline:auto;text-align:left}
+.pack{
+  position:relative;display:flex;flex-direction:column;gap:5px;
+  padding:18px 16px 14px;border-radius:var(--r-lg);
+  background:#fff;border:2px solid rgb(32 18 11/.1);
+  box-shadow:var(--shadow-crisp);
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.pack:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);border-color:var(--plum-400)}
+.pack:active{transform:translateY(0) scale(.98)}
+.pack.is-best{border-color:var(--plum-600)}
+.pack-badge{
+  position:absolute;top:-11px;left:14px;
+  background:var(--gold-400);color:var(--cocoa-900);
+  border-radius:7px;padding:3px 9px;
+  font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+}
+.pack-name{font-size:16px;font-weight:800;color:var(--cocoa-900);line-height:1.2}
+.pack-units{font-size:12px;font-weight:700;color:var(--cocoa-500);white-space:nowrap}
+.pack-price-row{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:6px;margin-bottom:10px}
+.pack-price{font-family:var(--font-display);font-size:clamp(1.55rem,5vw,2.1rem);font-weight:900;line-height:1;color:var(--plum-700)}
+.pack-mrp{font-size:13px;font-weight:600;color:var(--cocoa-400);text-decoration:line-through 2px}
+.pack-save{background:var(--gold-400);color:var(--cocoa-900);border-radius:7px;padding:3px 8px;font-size:11px;font-weight:800}
+.pack-cta{
+  margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:44px;border-radius:var(--r-md);
+  background:var(--plum-600);color:var(--cream-50);box-shadow:var(--shadow-plum);
+  font-size:14px;font-weight:800;transition:background-color .2s;
+}
+.pack:hover .pack-cta{background:var(--plum-700)}
+.pack .arw{transition:transform .2s}
+.pack:hover .arw{transform:translateX(4px)}
+/* On the plum and chocolate sections */
+.packs-dark .pack{background:rgb(255 253 249/.07);border-color:rgb(253 247 237/.18);box-shadow:none}
+.packs-dark .pack:hover{border-color:rgb(253 247 237/.4);box-shadow:none}
+.packs-dark .pack.is-best{border-color:var(--gold-400)}
+.packs-dark .pack-name{color:var(--cream-50)}
+.packs-dark .pack-units{color:rgb(253 247 237/.7)}
+.packs-dark .pack-price{color:var(--cream-50)}
+.packs-dark .pack-mrp{color:rgb(253 247 237/.5)}
+.packs-dark .pack-cta{background:var(--cream-50);color:var(--plum-700);box-shadow:var(--shadow-lift)}
+.packs-dark .pack:hover .pack-cta{background:#fff}
+.packs-dark .pick{color:var(--gold-300)}
+
 /* Trust strip — scrolls sideways on phones instead of wrapping raggedly */
 /* A real one-row slider on phones: it bleeds to both screen edges so the row
    visibly continues past the viewport, and snaps per badge. It only wraps into
@@ -685,9 +737,11 @@ h1 .ln{display:block}
 }
 .bar-thumb{width:46px;height:46px;flex:0 0 auto;border-radius:var(--r-sm);overflow:hidden;background:var(--cream-100);border:1px solid rgb(32 18 11/.07)}
 .bar-thumb img{width:100%;height:100%;object-fit:cover}
-.bar-txt{min-width:0;flex:0 0 auto;display:flex;align-items:baseline;gap:6px}
+.bar-txt{min-width:0;flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.bar-price{display:flex;align-items:baseline;gap:6px}
 .bar-txt b{font-family:var(--font-display);font-size:20px;font-weight:900;color:var(--plum-700);line-height:1}
 .bar-mrp{font-size:12px;font-weight:700;color:var(--cocoa-400);text-decoration:line-through 2px}
+.bar-pack{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--cocoa-500);white-space:nowrap}
 @media(prefers-reduced-motion:reduce){.bar{transition:none}}
 
 /* ── Flip-clock timer, centred in the dock ───────────────────────────────
@@ -852,6 +906,28 @@ h1 .ln{display:block}
 }
 .buy-field input::placeholder,.buy-field textarea::placeholder{color:rgba(107,63,41,.48)}
 .buy-sheet__submit{width:100%;margin-top:4px;min-height:56px}
+/* Pack picker inside the sheet — preselected from whichever button was
+   tapped, but the customer can still switch here. */
+.buy-packs{border:0;padding:0;margin:0;min-width:0}
+.buy-packs legend{font-size:13px;font-weight:800;color:var(--cocoa-700);margin-bottom:8px}
+.buy-pack-list{display:grid;gap:8px}
+.buy-pack{
+  display:flex;align-items:center;gap:12px;padding:11px 14px;
+  border:2px solid rgb(32 18 11/.12);border-radius:var(--r-md);
+  background:#fff;cursor:pointer;transition:border-color .2s,background-color .2s;
+}
+.buy-pack.is-on{border-color:var(--plum-600);background:var(--plum-50)}
+.buy-pack input{accent-color:var(--plum-600);width:18px;height:18px;flex:0 0 auto;margin:0}
+.buy-pack-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;line-height:1.25}
+.buy-pack-txt b{font-size:14px;color:var(--cocoa-900)}
+.buy-pack-txt small{font-size:12px;font-weight:700;color:var(--cocoa-500)}
+.buy-pack-best{
+  display:inline-block;margin-left:6px;vertical-align:1px;
+  background:var(--gold-400);color:var(--cocoa-900);border-radius:6px;padding:2px 7px;
+  font-style:normal;font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+}
+.buy-pack-price{font-family:var(--font-display);font-weight:900;font-size:18px;color:var(--plum-700);white-space:nowrap}
+.buy-pack-price s{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--cocoa-400);margin-left:6px}
 .buy-sheet__submit:disabled{opacity:.65;cursor:not-allowed;transform:none}
 .buy-sheet__status{
   min-height:18px;font-size:13px;font-weight:700;text-align:center;color:#c73333;
@@ -882,14 +958,14 @@ body.buy-sheet-open{overflow:hidden}
   <div class="announce-track">
     <span class="announce-line">
       <span class="tagx">Limited Time</span>
-      <span>🎉 Launch Offer — 4 Packs for ₹449</span>
+      <span>🎉 Launch Offer — Pack of 2 ₹249 · Pack of 4 ₹449</span>
       <span class="cd cd-inline" data-cd="inline" hidden>· Ends in <b data-cd-val>—</b></span>
     </span>
     <!-- Duplicate purely so the marquee can loop without a gap. Hidden from
          screen readers so the offer is not announced twice. -->
     <span class="announce-line" aria-hidden="true">
       <span class="tagx">Limited Time</span>
-      <span>🎉 Launch Offer — 4 Packs for ₹449</span>
+      <span>🎉 Launch Offer — Pack of 2 ₹249 · Pack of 4 ₹449</span>
       <span class="cd cd-inline" data-cd="inline" hidden>· Ends in <b data-cd-val>—</b></span>
     </span>
   </div>
@@ -974,24 +1050,17 @@ body.buy-sheet-open{overflow:hidden}
     <p class="hero-sub">Thin. Crispy. Chocolate-drizzled. Made with whole grain jowar for a better everyday snack.</p>
 
     <div class="hero-buy">
-      <div class="price-row">
-        <span class="price" data-price>₹449</span>
-        <span class="mrp" data-mrp>₹899</span>
-        <span class="save" data-save>Save 50%</span>
-      </div>
-      <!-- The tail is dropped on phones so this stays a single line; the same
-           description already appears in the section below. -->
-      <p class="unit">Pack of 4 · 4 × 40g<span class="unit-tail"> chocolate-drizzled waffle chips</span></p>
+      <!-- Two pack buttons (Pack of 2 / Pack of 4), rendered by JS from PACKS
+           in the <script> at the bottom. Price, MRP and Razorpay link for each
+           live there — nothing to edit here. -->
+      <p class="pick">Pick your pack</p>
+      <div class="packs" data-packs data-src="hero"></div>
 
       <!-- No timer here on purpose. The same countdown already runs in the
            announcement bar above and in the sticky buy dock below, and three
            copies of it on one screen read as pressure, not urgency. -->
 
-      <div class="cta-row">
-        <a class="btn btn-primary btn-lg buy" data-src="hero" href="#" target="_blank" rel="noopener noreferrer">
-          Buy Now
-          <svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
-        </a>
+      <div class="cta-row" style="margin-top:14px">
         <a class="btn btn-ghost btn-lg" href="#why-us">
           Why no maida?
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15m0 0 6-6m-6 6-6-6"/></svg>
@@ -1094,7 +1163,7 @@ body.buy-sheet-open{overflow:hidden}
       <li class="rv"><div class="card">
         <span class="ico"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="9.5" width="17" height="11" rx="1.6"/><path d="M2.5 9.5h19M12 9.5v11M12 9.5S10.5 3.5 8 3.5a2.4 2.4 0 0 0 0 6M12 9.5s1.5-6 4-6a2.4 2.4 0 0 1 0 6"/></svg></span>
         <h3>40g Snack Pack</h3>
-        <p>Small enough for a bag or a lunchbox, big enough to share. Four of them come in the launch offer.</p>
+        <p>Small enough for a bag or a lunchbox, big enough to share. Pick two or four in the launch offer.</p>
       </div></li>
     </ul>
   </div>
@@ -1163,7 +1232,7 @@ body.buy-sheet-open{overflow:hidden}
 
         <dl>
           <div class="row"><dt>Net Weight</dt><dd><strong>40 g</strong> per pack</dd></div>
-          <div class="row"><dt>Launch Pack</dt><dd>4 × 40 g for ₹449</dd></div>
+          <div class="row"><dt>Launch Offer</dt><dd>2 × 40 g for ₹249 · 4 × 40 g for ₹449</dd></div>
           <div class="row"><dt>Veg / Non-veg</dt><dd><span class="vegmark"><i aria-hidden="true"></i> Vegetarian</span></dd></div>
           <div class="row"><dt>Best Before</dt><dd>Each pack is stamped with its own packing date and USE&nbsp;BY date — check the back of your pack.</dd></div>
           <div class="row"><dt>FSSAI Lic. No.</dt><dd>22722758000068</dd></div>
@@ -1208,7 +1277,7 @@ body.buy-sheet-open{overflow:hidden}
       <li class="rv">
         <span class="ico" style="margin-inline:auto"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="12" r="2.4"/><circle cx="17.5" cy="6" r="2.4"/><circle cx="17.5" cy="18" r="2.4"/><path d="m8.2 10.9 7.1-3.7M8.2 13.1l7.1 3.7" stroke-linecap="round"/></svg></span>
         <h3>Passed around</h3>
-        <p style="font-size:14px;color:var(--cocoa-600);margin-top:6px">Four packs in the launch offer. One of them is not going to be yours.</p>
+        <p style="font-size:14px;color:var(--cocoa-600);margin-top:6px">Two or four packs in the launch offer. At least one is not going to be yours.</p>
       </li>
     </ul>
   </div>
@@ -1248,7 +1317,7 @@ body.buy-sheet-open{overflow:hidden}
   <div class="wrap" style="text-align:center">
     <div class="rv">
       <span class="hot on-dark"><span class="dot" aria-hidden="true"></span> Limited time launch price</span>
-      <h2 style="margin-top:18px;color:var(--cream-50);max-width:20ch;margin-inline:auto">Four packs of 40g, for four hundred and forty-nine.</h2>
+      <h2 style="margin-top:18px;color:var(--cream-50);max-width:20ch;margin-inline:auto">Two packs, or four. Both at half price.</h2>
 
       <!-- The main countdown. Set OFFER_ENDS in the <script> at the bottom.
            The whole block hides itself once the deadline passes rather than
@@ -1260,18 +1329,7 @@ body.buy-sheet-open{overflow:hidden}
         <div class="cd-boxes" data-cd-boxes></div>
       </div>
 
-      <div class="price-row" style="justify-content:center;margin-top:26px">
-        <span class="price" data-price style="color:var(--cream-50);font-size:clamp(3rem,9vw,3.75rem)">₹449</span>
-        <span class="mrp" data-mrp style="color:rgb(253 247 237/.5)">₹899</span>
-        <span class="save" data-save>Save 50%</span>
-      </div>
-      <p class="unit" style="color:rgb(253 247 237/.85)">Pack of 4 · 4 × 40g</p>
-      <div style="margin-top:24px">
-        <a class="btn btn-cream btn-lg buy" data-src="offer" href="#" target="_blank" rel="noopener noreferrer">
-          Buy Now
-          <svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
-        </a>
-      </div>
+      <div class="packs packs-dark packs-center" data-packs data-src="offer" style="margin-top:30px"></div>
     </div>
   </div>
 </section>
@@ -1303,25 +1361,14 @@ body.buy-sheet-open{overflow:hidden}
 
       <div class="rv cta-copy">
         <h2 style="color:var(--cream-50)">Ready to Crunch?</h2>
-        <p class="lede">Four 40g packs of thin, chocolate-drizzled jowar waffle chips. Zero maida, gluten free, not fried — just waffled.</p>
-        <div class="price-row" style="margin-top:26px">
-          <span class="price" data-price style="color:var(--cream-50)">₹449</span>
-          <span class="mrp" data-mrp style="color:rgb(253 247 237/.5)">₹899</span>
-          <span class="save" data-save>Save 50%</span>
-        </div>
-        <p class="unit" style="color:rgb(253 247 237/.85)">Pack of 4 · 4 × 40g</p>
+        <p class="lede">Thin, chocolate-drizzled jowar waffle chips in 40g packs. Zero maida, gluten free, not fried — just waffled. Two packs or four — your call.</p>
 
         <p class="hot on-dark cd" data-cd="inline" style="margin-top:16px" hidden>
           <span class="dot" aria-hidden="true"></span>
           This price ends in <b data-cd-val>—</b>
         </p>
 
-        <div style="margin-top:20px">
-          <a class="btn btn-cream btn-lg buy" data-src="final" href="#" target="_blank" rel="noopener noreferrer">
-            Buy Now
-            <svg class="arw" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>
-          </a>
-        </div>
+        <div class="packs packs-dark" data-packs data-src="final" style="margin-top:22px"></div>
 
         <ul style="list-style:none;display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:28px;border-top:1px solid rgb(253 247 237/.16);padding-top:22px;font-size:13px;font-weight:700;color:var(--cream-100)">
           <li>🌾 Made with Jowar</li><li>🚫 Zero Maida</li><li>🌿 Gluten Free</li><li>🧇 Not Fried, Just Waffled</li><li>🛡️ FSSAI Certified</li>
@@ -1359,6 +1406,12 @@ body.buy-sheet-open{overflow:hidden}
     <p class="buy-sheet__sub">Enter your details to continue to secure payment.</p>
 
     <form class="buy-sheet__form" id="buyLeadForm" novalidate>
+      <fieldset class="buy-packs">
+        <legend>Choose your pack</legend>
+        <!-- Options rendered by JS from PACKS. -->
+        <div class="buy-pack-list" id="buyPacks"></div>
+      </fieldset>
+
       <div class="buy-field">
         <label for="buyName">Name <span>*</span></label>
         <input
@@ -1398,9 +1451,10 @@ body.buy-sheet-open{overflow:hidden}
       </div>
 
       <input type="hidden" id="buySource" name="source">
+      <input type="hidden" id="buyPack" name="pack">
 
       <button type="submit" class="btn btn-primary btn-lg buy-sheet__submit" id="buySubmit">
-        Continue to Payment
+        Continue to Payment · <span data-price>₹449</span>
       </button>
 
       <p class="buy-sheet__status" id="buyStatus" aria-live="polite"></p>
@@ -1417,8 +1471,11 @@ body.buy-sheet-open{overflow:hidden}
     <div class="bar-thumb shot" data-shot="images/4.webp" data-note="" data-alt="" aria-hidden="true"></div>
 
     <div class="bar-txt">
-      <b data-price>₹449</b>
-      <span class="bar-mrp" data-mrp>₹899</span>
+      <span class="bar-price">
+        <b data-price>₹449</b>
+        <span class="bar-mrp" data-mrp>₹899</span>
+      </span>
+      <small class="bar-pack" data-pack-name>Pack of 4</small>
     </div>
 
     <!-- Flip-clock timer, centred. Each card is re-animated only on the tick
@@ -1453,23 +1510,59 @@ body.buy-sheet-open{overflow:hidden}
 
 <script>
 /* ═══════════════════════════════════════════════════════════════════════════
-   ⚠️  THE ONE LINE TO CHANGE ON LAUNCH DAY
-   Paste the Razorpay Payment Link here. Every Buy Now button on the page
-   (header, hero, offer, final CTA, sticky bar) reads this single value.
-   ══════════════════════════════════════════════════════════════════════════ */
-var RAZORPAY_LINK = "https://rzp.io/rzp/21SY6XxR";
+   ⚠️  THE ONE PLACE TO CHANGE ON LAUNCH DAY — PACKS
+   One entry per pack size. Every Buy Now button on the page (hero, offer,
+   final CTA, header, sticky bar) and the picker inside the buy popup are
+   rendered from this list, so price, MRP and the Razorpay link live here
+   and nowhere else.
 
-/* Price shown everywhere. Change once, changes everywhere.
-   MRP is the struck-through "was" price; the Save % badge is calculated from
-   the two, so it can never disagree with them.
+     price  what the customer pays, in rupees (a number, no ₹)
+     mrp    the struck-through "was" price; the Save % is calculated from the
+            two so it can never disagree with them. Set to null to hide it.
+     link   that pack's Razorpay Payment Link
+     best   true on the pack that gets the "Best Value" badge
 
    ▸ MRP must be the genuine maximum retail price declared on the pack. In India
      a struck-through price that was never actually charged is a misleading
      discount under the Consumer Protection Act 2019 and the Legal Metrology
-     (Packaged Commodities) Rules. Set MRP to null to hide the strike-through
-     and the badge entirely. */
-var PRICE = "₹449";
-var MRP   = "₹899";
+     (Packaged Commodities) Rules.
+   ══════════════════════════════════════════════════════════════════════════ */
+var PACKS = [
+  { id: 'p2', label: 'Pack of 2', units: 2, grams: 40, price: 249, mrp: 499, link: "https://rzp.io/rzp/XCIJqHa" },
+  { id: 'p4', label: 'Pack of 4', units: 4, grams: 40, price: 449, mrp: 899, link: "https://rzp.io/rzp/21SY6XxR", best: true }
+];
+/* Which pack the header / sticky-bar Buy Now and the popup start on. */
+var DEFAULT_PACK = 'p4';
+
+var selectedPack = DEFAULT_PACK;
+function packById(id) {
+  for (var i = 0; i < PACKS.length; i++) if (PACKS[i].id === id) return PACKS[i];
+  return packById(DEFAULT_PACK);
+}
+function rs(n) { return '₹' + n; }
+function savePct(p) { return (p.mrp && p.mrp > p.price) ? Math.round((p.mrp - p.price) / p.mrp * 100) : null; }
+
+/* Render the two pack buttons into every [data-packs] slot (hero, offer,
+   final CTA). Each card is a .buy link, so the popup wiring below picks it up
+   exactly like the single-button version did. */
+(function renderPacks() {
+  var ARW = '<svg class="arw" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h15m0 0-6-6m6 6-6 6"/></svg>';
+  document.querySelectorAll('[data-packs]').forEach(function (slot) {
+    var src = slot.getAttribute('data-src') || 'unknown';
+    slot.innerHTML = PACKS.map(function (p) {
+      var pct = savePct(p);
+      return '<a class="pack buy' + (p.best ? ' is-best' : '') + '" data-pack="' + p.id + '" data-src="' + src + '" href="#" aria-label="Buy ' + p.label + ' for ' + rs(p.price) + '">' +
+        (p.best ? '<span class="pack-badge">Best Value</span>' : '') +
+        '<span class="pack-name">' + p.label + '</span>' +
+        '<span class="pack-units">' + p.units + ' × ' + p.grams + 'g · ' + rs(Math.round(p.price / p.units)) + '/pack</span>' +
+        '<span class="pack-price-row"><span class="pack-price">' + rs(p.price) + '</span>' +
+          (pct ? '<s class="pack-mrp">' + rs(p.mrp) + '</s><span class="pack-save">' + pct + '% off</span>' : '') +
+        '</span>' +
+        '<span class="pack-cta">Buy Now ' + ARW + '</span>' +
+      '</a>';
+    }).join('');
+  });
+})();
 
 /* ═══════════════════════════════════════════════════════════════════════════
    URGENCY — the 2-hour flash window.
@@ -1518,9 +1611,48 @@ var buyName    = document.getElementById('buyName');
 var buyPhone   = document.getElementById('buyPhone');
 var buyAddress = document.getElementById('buyAddress');
 var buySource  = document.getElementById('buySource');
+var buyPackIn  = document.getElementById('buyPack');
 var buySubmit  = document.getElementById('buySubmit');
 var buyStatus  = document.getElementById('buyStatus');
+var buyPacks   = document.getElementById('buyPacks');
 var lastBuyTrigger = null;
+
+/* The pack picker inside the popup, one radio row per pack. */
+buyPacks.innerHTML = PACKS.map(function (p) {
+  var pct = savePct(p);
+  return '<label class="buy-pack" data-pack-opt="' + p.id + '">' +
+    '<input type="radio" name="pack" value="' + p.id + '">' +
+    '<span class="buy-pack-txt"><b>' + p.label + (p.best ? ' <em class="buy-pack-best">Best Value</em>' : '') + '</b>' +
+      '<small>' + p.units + ' × ' + p.grams + 'g</small></span>' +
+    '<span class="buy-pack-price">' + rs(p.price) + (pct ? '<s>' + rs(p.mrp) + '</s>' : '') + '</span>' +
+  '</label>';
+}).join('');
+buyPacks.addEventListener('change', function (e) {
+  if (e.target.name === 'pack') setSelectedPack(e.target.value);
+});
+
+/* One pack is always "selected": whichever button was tapped last, or
+   DEFAULT_PACK before that. The sticky bar, the popup radios and the popup's
+   submit button all follow it. */
+function setSubmitLabel() {
+  buySubmit.innerHTML = 'Continue to Payment · <span data-price>' + rs(packById(selectedPack).price) + '</span>';
+}
+function setSelectedPack(id) {
+  var p = packById(id), pct = savePct(p);
+  selectedPack = p.id;
+  document.querySelectorAll('[data-price]').forEach(function (el) { el.textContent = rs(p.price); });
+  document.querySelectorAll('[data-mrp]').forEach(function (el) { el.textContent = pct ? rs(p.mrp) : ''; el.hidden = !pct; });
+  document.querySelectorAll('[data-save]').forEach(function (el) { el.textContent = pct ? 'Save ' + pct + '%' : ''; el.hidden = !pct; });
+  document.querySelectorAll('[data-pack-name]').forEach(function (el) { el.textContent = p.label; });
+  document.querySelectorAll('[data-pack-opt]').forEach(function (el) {
+    var on = el.getAttribute('data-pack-opt') === p.id;
+    el.classList.toggle('is-on', on);
+    el.querySelector('input').checked = on;
+  });
+  buyPackIn.value = p.label;
+  if (!buySubmit.disabled) setSubmitLabel();
+}
+setSelectedPack(DEFAULT_PACK);
 
 /* Phone field: digits only, maximum 10 digits. */
 buyPhone.addEventListener('input', function () {
@@ -1537,6 +1669,9 @@ document.querySelectorAll('.buy').forEach(function (a) {
     e.preventDefault();
 
     var source = a.getAttribute('data-src') || 'unknown';
+    /* Pack cards carry their pack; the header / sticky-bar buttons open on
+       whichever pack is currently selected. */
+    setSelectedPack(a.getAttribute('data-pack') || selectedPack);
     lastBuyTrigger = a;
     buySource.value = source;
     buyStatus.textContent = '';
@@ -1547,7 +1682,7 @@ document.querySelectorAll('.buy').forEach(function (a) {
 
     /* Preserve the page's existing checkout-intent analytics. */
     if (typeof Track !== 'undefined' && Track.buyClick) {
-      Track.buyClick(source);
+      Track.buyClick(source, selectedPack);
     }
 
     setTimeout(function () { buyName.focus(); }, 350);
@@ -1576,7 +1711,7 @@ document.addEventListener('keydown', function (e) {
    Submit flow:
    1) validate Name + Phone
    2) POST the lead to Google Apps Script
-   3) continue to the existing Razorpay product/payment page in the same tab
+   3) continue to the selected pack's Razorpay payment page in the same tab
 */
 buyForm.addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -1602,6 +1737,8 @@ buyForm.addEventListener('submit', async function (e) {
     return;
   }
 
+  var pack = packById(selectedPack);
+
   buySubmit.disabled = true;
   buySubmit.textContent = 'Please wait...';
 
@@ -1609,6 +1746,8 @@ buyForm.addEventListener('submit', async function (e) {
   formData.append('name', name);
   formData.append('phone', phone);
   formData.append('address', buyAddress.value.trim());
+  formData.append('pack', pack.label);
+  formData.append('amount', String(pack.price));
   formData.append('source', buySource.value || 'unknown');
   formData.append('page_url', window.location.href);
   formData.append('submitted_at', new Date().toISOString());
@@ -1621,30 +1760,14 @@ buyForm.addEventListener('submit', async function (e) {
       body: formData
     });
 
-    window.location.href = RAZORPAY_LINK;
+    window.location.href = pack.link;
   } catch (error) {
     console.error('Lead submission failed:', error);
     buyStatus.textContent = 'Something went wrong. Please check your internet connection and try again.';
     buySubmit.disabled = false;
-    buySubmit.textContent = 'Continue to Payment';
+    setSubmitLabel();
   }
 });
-document.querySelectorAll('[data-price]').forEach(function (el) { el.textContent = PRICE; });
-
-/* MRP + the Save % badge. Both are driven off PRICE and MRP, and both remove
-   themselves if MRP is null — so the page can never show a fake discount. */
-(function () {
-  var num = function (s) { return parseFloat(String(s).replace(/[^0-9.]/g, '')); };
-  var mrp = MRP ? num(MRP) : null, price = num(PRICE);
-  var pct = (mrp && price && mrp > price) ? Math.round((mrp - price) / mrp * 100) : null;
-
-  document.querySelectorAll('[data-mrp]').forEach(function (el) {
-    if (pct) el.textContent = MRP; else el.remove();
-  });
-  document.querySelectorAll('[data-save]').forEach(function (el) {
-    if (pct) el.textContent = 'Save ' + pct + '%'; else el.remove();
-  });
-})();
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1667,9 +1790,13 @@ var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
    ══════════════════════════════════════════════════════════════════════════ */
 var Track = (function () {
   var TAGS = window.ROCHERS_TAGS || {};
-  var VALUE = 449;                       /* kept in sync with PRICE below */
-  var ITEM  = "Rocher's Waffle Chips — Pack of 4";
   var DEBUG = /[?&]tagdebug/.test(location.search);
+  /* Value and item name follow the pack, so a Pack of 2 click reports ₹249
+     and a Pack of 4 click reports ₹449. */
+  function prod(packId) {
+    var p = packById(packId || selectedPack);
+    return { value: p.price, item: "Rocher's Waffle Chips — " + p.label };
+  }
 
   function fire(name, params) {
     params = params || {};
@@ -1692,6 +1819,7 @@ var Track = (function () {
   return {
     /* Fired once on load: "someone looked at the product". */
     viewContent: function () {
+      var pr = prod(), VALUE = pr.value, ITEM = pr.item;
       var p = { currency: 'INR', value: VALUE, content_name: ITEM, content_type: 'product' };
       fire('view_item', p);
       ga('view_item', {
@@ -1702,8 +1830,9 @@ var Track = (function () {
     },
 
     /* Every Buy Now click, tagged with which button was pressed. */
-    buyClick: function (source) {
-      var p = { currency: 'INR', value: VALUE, content_name: ITEM, cta_source: source };
+    buyClick: function (source, packId) {
+      var pr = prod(packId), VALUE = pr.value, ITEM = pr.item;
+      var p = { currency: 'INR', value: VALUE, content_name: ITEM, cta_source: source, pack: ITEM };
       fire('purchase_intent', p);
       ga('begin_checkout', {
         currency: 'INR', value: VALUE, cta_source: source,
@@ -2149,7 +2278,7 @@ var FAQS = [
   { q: 'Are they fried?', a: 'No. They are pressed thin in a waffle iron — not fried, just waffled. That is where the clean snap comes from.' },
   { q: 'What is actually in them?', a: 'Whole Grain Jowar Flour, Dark Compound Chocolate (Sugar, Vegetable Fat, Cocoa Solids, Milk Solids, Emulsifier INS 322, Flavouring), Sugar, Tapioca Starch, Soybean Oil, Potato Starch, Milk Powder, Vanilla Flavour, Soy Lecithin (INS 322), Raising Agents (INS 500(ii), INS 450(i)) and Salt.' },
   { q: 'Any allergens I should know about?', a: 'Yes. The pack contains Milk and Soy, and is manufactured in a facility that also processes Wheat Flour and Tree Nuts. If you are coeliac or have a severe nut allergy, please take that into account.' },
-  { q: 'How big is a pack?', a: '40g per pack. The launch offer is four packs for ₹449.' },
+  { q: 'How big is a pack?', a: '40g per pack. The launch offer is a Pack of 2 for ₹249 or a Pack of 4 for ₹449.' },
   { q: 'Is it vegetarian?', a: 'Yes — the pack carries the green vegetarian mark.' },
   { q: 'How do I know it is still fresh?', a: 'Every pack is stamped on the back with its packing date and a USE BY date. Check the stamp on your pack.' },
   { q: 'Do you do bulk, corporate or B2B orders?', a: 'Yes — message +91 88581 75027 on WhatsApp, or email rochersbakeshop@gmail.com.' }
@@ -2200,7 +2329,9 @@ document.querySelectorAll('#faq-list button').forEach(function (btn) {
    ══════════════════════════════════════════════════════════════════════════ */
 (function () {
   var todo = [];
-  if (/REPLACE_ME/.test(RAZORPAY_LINK)) todo.push('⚠️  RAZORPAY_LINK is still a placeholder — every Buy Now button leads nowhere.');
+  PACKS.forEach(function (p) {
+    if (!p.link || /REPLACE_ME/.test(p.link)) todo.push('⚠️  ' + p.label + ' has no Razorpay link in PACKS — its Buy Now button leads nowhere.');
+  });
   var phs = document.querySelectorAll('.ph').length;
   if (phs) todo.push(phs + ' piece(s) of placeholder copy still on the page (dashed purple underline).');
   var missing = document.querySelectorAll('.shot-miss').length;

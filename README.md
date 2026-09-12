@@ -14,16 +14,25 @@ Landing_page/
 
 ## 🚨 Two things before this goes live
 
-### 1. The Razorpay link
+### 1. The packs (price, MRP, Razorpay link)
 
-Open `index.html`, scroll to the `<script>` near the bottom. **Line 1 of it:**
+Open `index.html`, scroll to the `<script>` near the bottom. **The first thing in it:**
 
 ```js
-var RAZORPAY_LINK = "https://rzp.io/l/REPLACE_ME";
+var PACKS = [
+  { id: 'p2', label: 'Pack of 2', units: 2, grams: 40, price: 249, mrp: 499, link: "https://rzp.io/rzp/..." },
+  { id: 'p4', label: 'Pack of 4', units: 4, grams: 40, price: 449, mrp: 899, link: "https://rzp.io/rzp/...", best: true }
+];
+var DEFAULT_PACK = 'p4';
 ```
 
-Paste the real Payment Link there. All five Buy Now buttons (header, hero,
-offer band, final CTA, sticky bar) read that one value. Nothing else to change.
+One line per pack size. Every Buy Now button on the page (the two pack cards
+in the hero, offer band and closing section, plus the header and sticky-bar
+buttons and the picker inside the buy popup) is rendered from this list — price,
+struck-through MRP, "Save %" badge, per-pack price and the payment link all come
+from here. Nothing else to change. `best: true` puts the "Best Value" badge on
+that pack; `DEFAULT_PACK` is what the header / sticky-bar button and the popup
+start on.
 
 **Right below it, set the offer deadline:**
 
@@ -70,7 +79,7 @@ delete from.
 
 | To change                | Where                                                    |
 | ------------------------ | -------------------------------------------------------- |
-| Razorpay link            | `RAZORPAY_LINK`, top of the `<script>`                    |
+| Price / MRP / Razorpay   | `PACKS`, top of the `<script>` (one entry per pack size)  |
 | Price (all 5 places)     | `PRICE`, right underneath it                              |
 | Offer deadline / timers  | `OFFER_ENDS`, right underneath that                       |
 | Offer bar text           | `<div class="announce">`, very top of the `<body>`        |
