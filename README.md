@@ -53,6 +53,33 @@ They open Razorpay in a **new tab** on purpose — if the customer bails on the
 payment page, the landing page and the ad click that paid for it are still
 sitting there behind them.
 
+**Right below that, Cash on Delivery:**
+
+```js
+var COD_ENABLED = true;   // false = hide the option, every order goes to Razorpay
+var COD_FEE = 0;          // extra rupees charged on COD orders, 0 = none
+```
+
+With COD on, the buy popup asks **"How would you like to pay?"** — *Pay Online*
+(Razorpay, as before) or *Cash on Delivery*. For COD the address becomes
+mandatory, the button turns into *Place COD Order · ₹449*, the order is saved
+to the Google Sheet with **COD** in the `payment_status` column, and the customer sees an
+"Order placed" confirmation on the page instead of Razorpay. The confirmation
+promises **a call to confirm before dispatch** — someone has to actually make
+that call from the Sheet. A COD FAQ is added automatically while the switch is
+on, and removed when it is off, so the page never advertises an option it
+does not offer.
+
+`COD_FEE` shows up on the option (`+₹30`), in the button total, in the
+confirmation and in the FAQ, so the customer is never surprised by it.
+
+⚠️ **The Sheet is the only record of a COD order** — there is no Razorpay
+receipt. Every submission sends the payment mode — `Online` or `COD` — in a
+form field called `payment_status`, which is also the Sheet's column header.
+The field name lives in `SHEET_STATUS_FIELD`, right under `SHEET_WEB_APP_URL`;
+if the column is ever renamed, change both. The `amount` field already
+includes the COD charge.
+
 ### 2. The photos
 
 Save the two pack photos the client sent into `images/`:
@@ -80,6 +107,7 @@ delete from.
 | To change                | Where                                                    |
 | ------------------------ | -------------------------------------------------------- |
 | Price / MRP / Razorpay   | `PACKS`, top of the `<script>` (one entry per pack size)  |
+| Cash on Delivery on/off  | `COD_ENABLED` / `COD_FEE`, right under `DEFAULT_PACK`     |
 | Price (all 5 places)     | `PRICE`, right underneath it                              |
 | Offer deadline / timers  | `OFFER_ENDS`, right underneath that                       |
 | Offer bar text           | `<div class="announce">`, very top of the `<body>`        |
@@ -114,7 +142,7 @@ where it used to be saying exactly what's needed to bring it back.
 | 3 | Customer reviews section | Having real, verified reviews. See warning below. |
 | 4 | Lifestyle gallery | Shooting the six lifestyle photos. |
 | 5 | Shelf-life period + storage line | Confirming a standard shelf life. The pack states a per-batch USE BY date only, so the page says "check the stamp on your pack" instead of claiming a period. |
-| 6 | FAQ: shipping time, COD, cancellations/returns | Client answering them. |
+| 6 | FAQ: shipping time, cancellations/returns | Client answering them. (The COD question is answered automatically while `COD_ENABLED` is true.) |
 | 7 | "Limited first batch" scarcity line | Confirming it's actually a limited batch. |
 
 ### One thing worth raising with the client
@@ -159,6 +187,12 @@ where the TODO comment is. Nothing else.
 ⚠️ This is purchase *intent*, not a sale — payment completes on Razorpay's
 hosted page, which this site never sees. Track real conversions with a Razorpay
 webhook, and don't report these clicks as purchases in ad reporting.
+
+A placed **Cash on Delivery order** is different: name, phone and address are
+in the Sheet and the customer has seen the confirmation. It fires `cod_order`
+into `dataLayer`, `purchase` on GA4 and `Purchase` on Meta, all tagged
+`payment_type: 'cod'` so they can be reported separately. A COD parcel can
+still be refused at the door, so read these as orders, not cash received.
 
 ---
 

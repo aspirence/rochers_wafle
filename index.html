@@ -110,7 +110,8 @@ window.ROCHERS_TAGS = {
     Where something was not known, it was REMOVED rather than filled with
     filler — that is why there is no nutrition table, no shelf-life period, no
     customer reviews, no star ratings, no strike-through MRP, no "Save 30%"
-    badge, no lifestyle gallery and no shipping/COD/returns answers in the FAQ.
+    badge, no lifestyle gallery and no shipping/returns answers in the FAQ.
+    (Cash on Delivery IS offered — see COD_ENABLED at the top of the <script>.)
 
     Each of those has a "▸ DELIBERATELY NOT LISTED" or "▸ REMOVED ON PURPOSE"
     comment where it used to be, saying exactly what the client must supply to
@@ -928,6 +929,44 @@ h1 .ln{display:block}
 }
 .buy-pack-price{font-family:var(--font-display);font-weight:900;font-size:18px;color:var(--plum-700);white-space:nowrap}
 .buy-pack-price s{font-family:var(--font-sans);font-size:12px;font-weight:600;color:var(--cocoa-400);margin-left:6px}
+/* Payment method picker — Pay Online (Razorpay) or Cash on Delivery. The whole
+   fieldset stays hidden when COD_ENABLED is false, so the flow is unchanged. */
+.buy-pay{border:0;padding:0;margin:0;min-width:0}
+.buy-pay legend{font-size:13px;font-weight:800;color:var(--cocoa-700);margin-bottom:8px}
+.buy-pay-list{display:grid;gap:8px}
+@media(min-width:480px){.buy-pay-list{grid-template-columns:1fr 1fr}}
+.buy-pay-opt{
+  display:flex;align-items:center;gap:12px;padding:11px 14px;
+  border:2px solid rgb(32 18 11/.12);border-radius:var(--r-md);
+  background:#fff;cursor:pointer;transition:border-color .2s,background-color .2s;
+}
+.buy-pay-opt.is-on{border-color:var(--plum-600);background:var(--plum-50)}
+.buy-pay-opt input{accent-color:var(--plum-600);width:18px;height:18px;flex:0 0 auto;margin:0}
+.buy-pay-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;line-height:1.25}
+.buy-pay-txt b{font-size:14px;color:var(--cocoa-900)}
+.buy-pay-txt small{font-size:12px;font-weight:700;color:var(--cocoa-500)}
+.buy-pay-fee{font-size:12px;font-weight:800;color:var(--plum-700);white-space:nowrap}
+/* COD confirmation — swaps in for the form once a Cash on Delivery order is
+   saved. .is-done on the panel hides the title, subtitle and form. */
+.buy-sheet__panel.is-done .buy-sheet__title,
+.buy-sheet__panel.is-done .buy-sheet__sub,
+.buy-sheet__panel.is-done .buy-sheet__form{display:none}
+.buy-sheet__done{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:26px 0 8px}
+.buy-sheet__done[hidden]{display:none}
+.buy-done-ico{
+  width:64px;height:64px;border-radius:999px;margin-bottom:6px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--plum-50);color:var(--plum-700);
+}
+.buy-done-title{font-family:var(--font-display);font-weight:900;font-size:clamp(1.4rem,4.5vw,1.8rem);color:var(--cocoa-900);line-height:1.15}
+.buy-done-txt{color:var(--cocoa-600);font-size:15px;line-height:1.5;max-width:42ch}
+.buy-done-txt b{color:var(--cocoa-900)}
+.buy-done-amt{
+  margin-top:6px;background:#fff;border:1px solid rgb(32 18 11/.1);border-radius:var(--r-md);
+  padding:12px 18px;font-weight:800;color:var(--cocoa-800);font-size:14px;
+}
+.buy-done-amt b{font-family:var(--font-display);font-weight:900;font-size:20px;color:var(--plum-700);margin-left:6px}
+.buy-sheet__done .btn{margin-top:14px;width:100%}
 .buy-sheet__submit:disabled{opacity:.65;cursor:not-allowed;transform:none}
 .buy-sheet__status{
   min-height:18px;font-size:13px;font-weight:700;text-align:center;color:#c73333;
@@ -1450,6 +1489,23 @@ body.buy-sheet-open{overflow:hidden}
         ></textarea>
       </div>
 
+      <!-- Payment method. Shown only when COD_ENABLED is true in the <script>;
+           otherwise it stays hidden and every order goes to Razorpay. -->
+      <fieldset class="buy-pay" id="buyPay" hidden>
+        <legend>How would you like to pay?</legend>
+        <div class="buy-pay-list">
+          <label class="buy-pay-opt is-on" data-pay-opt="online">
+            <input type="radio" name="payment" value="online" checked>
+            <span class="buy-pay-txt"><b>Pay Online</b><small>UPI · Cards · Netbanking</small></span>
+          </label>
+          <label class="buy-pay-opt" data-pay-opt="cod">
+            <input type="radio" name="payment" value="cod">
+            <span class="buy-pay-txt"><b>Cash on Delivery</b><small>Pay when it arrives</small></span>
+            <span class="buy-pay-fee" data-cod-fee hidden></span>
+          </label>
+        </div>
+      </fieldset>
+
       <input type="hidden" id="buySource" name="source">
       <input type="hidden" id="buyPack" name="pack">
 
@@ -1459,6 +1515,15 @@ body.buy-sheet-open{overflow:hidden}
 
       <p class="buy-sheet__status" id="buyStatus" aria-live="polite"></p>
     </form>
+
+    <!-- Replaces the form once a Cash on Delivery order has been saved. -->
+    <div class="buy-sheet__done" id="buyDone" hidden>
+      <div class="buy-done-ico" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+      <p class="buy-done-title" id="buyDoneTitle">Order placed!</p>
+      <p class="buy-done-txt" id="buyDoneTxt"></p>
+      <p class="buy-done-amt">Keep ready in cash <b data-cod-total>₹449</b></p>
+      <button type="button" class="btn btn-primary btn-lg" data-buy-close>Done</button>
+    </div>
   </div>
 </div>
 
@@ -1534,6 +1599,19 @@ var PACKS = [
 /* Which pack the header / sticky-bar Buy Now and the popup start on. */
 var DEFAULT_PACK = 'p4';
 
+/* ── Cash on Delivery ──────────────────────────────────────────────────────
+   true  → the popup asks "Pay Online or Cash on Delivery?". A COD order is
+           saved to the Google Sheet with "COD" in its payment_status column
+           and confirmed on screen; Razorpay is never opened. Address becomes
+           mandatory for COD.
+   false → the picker is not shown and every order goes to Razorpay as before.
+
+   COD_FEE is an extra charge in rupees on COD orders (0 = none). It is shown
+   on the option, on the button, in the confirmation and in the FAQ, so the
+   customer is never surprised by it. */
+var COD_ENABLED = true;
+var COD_FEE = 0;
+
 var selectedPack = DEFAULT_PACK;
 function packById(id) {
   for (var i = 0; i < PACKS.length; i++) if (PACKS[i].id === id) return PACKS[i];
@@ -1604,6 +1682,10 @@ var OFFER_WINDOW_HOURS = 2;
    After deploying your Google Apps Script Web App, paste its /exec URL below.
    ══════════════════════════════════════════════════════════════════════════ */
 var SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbygCTxHV5xJapBo_eWVSZB7s-NSvu9irQUOh28xkcBIM66MuPkx7bHpbVpHVlN8hWIXog/exec";
+/* The form field for the Sheet's payment_status column (the field name and
+   the column header are the same on purpose). Every order sends it: "Online"
+   (Razorpay) or "COD". If the column is ever renamed, change it here too. */
+var SHEET_STATUS_FIELD = "payment_status";
 
 var buySheet   = document.getElementById('buySheet');
 var buyForm    = document.getElementById('buyLeadForm');
@@ -1615,7 +1697,14 @@ var buyPackIn  = document.getElementById('buyPack');
 var buySubmit  = document.getElementById('buySubmit');
 var buyStatus  = document.getElementById('buyStatus');
 var buyPacks   = document.getElementById('buyPacks');
+var buyPay     = document.getElementById('buyPay');
+var buyDone    = document.getElementById('buyDone');
+var buyDoneTxt = document.getElementById('buyDoneTxt');
+var buyPanel   = buySheet.querySelector('.buy-sheet__panel');
+var buyAddrLbl = document.querySelector('label[for="buyAddress"]');
 var lastBuyTrigger = null;
+/* 'online' (Razorpay) or 'cod'. Only ever 'cod' while COD_ENABLED is true. */
+var payMethod = 'online';
 
 /* The pack picker inside the popup, one radio row per pack. */
 buyPacks.innerHTML = PACKS.map(function (p) {
@@ -1635,7 +1724,10 @@ buyPacks.addEventListener('change', function (e) {
    DEFAULT_PACK before that. The sticky bar, the popup radios and the popup's
    submit button all follow it. */
 function setSubmitLabel() {
-  buySubmit.innerHTML = 'Continue to Payment · <span data-price>' + rs(packById(selectedPack).price) + '</span>';
+  var p = packById(selectedPack);
+  buySubmit.innerHTML = payMethod === 'cod'
+    ? 'Place COD Order · <span>' + rs(codTotal(p)) + '</span>'
+    : 'Continue to Payment · <span>' + rs(p.price) + '</span>';
 }
 function setSelectedPack(id) {
   var p = packById(id), pct = savePct(p);
@@ -1653,6 +1745,66 @@ function setSelectedPack(id) {
   if (!buySubmit.disabled) setSubmitLabel();
 }
 setSelectedPack(DEFAULT_PACK);
+
+/* ── Payment method ─────────────────────────────────────────────────────────
+   What the customer pays at the door: pack price plus the COD charge, if any. */
+function codTotal(p) { return p.price + (COD_FEE > 0 ? COD_FEE : 0); }
+function setPayMethod(m) {
+  payMethod = (COD_ENABLED && m === 'cod') ? 'cod' : 'online';
+  var cod = payMethod === 'cod';
+  document.querySelectorAll('[data-pay-opt]').forEach(function (el) {
+    var on = el.getAttribute('data-pay-opt') === payMethod;
+    el.classList.toggle('is-on', on);
+    el.querySelector('input').checked = on;
+  });
+  /* A COD parcel can't go anywhere without an address, so it becomes
+     mandatory; for online payment it stays optional as before. */
+  buyAddress.required = cod;
+  buyAddrLbl.innerHTML = 'Address' + (cod ? ' <span>*</span>' : '');
+  buyAddress.placeholder = cod ? 'Full delivery address with PIN code' : 'Delivery address';
+  if (!buySubmit.disabled) setSubmitLabel();
+}
+if (COD_ENABLED) {
+  buyPay.hidden = false;
+  document.querySelector('.buy-sheet__sub').textContent = 'Enter your details, then pay online or choose Cash on Delivery.';
+  if (COD_FEE > 0) {
+    var feeEl = document.querySelector('[data-cod-fee]');
+    feeEl.textContent = '+' + rs(COD_FEE);
+    feeEl.hidden = false;
+  }
+  buyPay.addEventListener('change', function (e) {
+    if (e.target.name === 'payment') setPayMethod(e.target.value);
+  });
+}
+setPayMethod('online');
+
+/* Shown after a COD order is saved. The name is escaped because it is
+   customer-typed text going into innerHTML. */
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function showCodDone(name, phone, pack) {
+  buyDoneTxt.innerHTML = 'Thanks, <b>' + esc(name) + '</b>. Your order for a <b>' + pack.label +
+    '</b> has been placed. We\'ll call <b>+91 ' + phone + '</b> to confirm it before dispatch.';
+  document.querySelector('[data-cod-total]').textContent = rs(codTotal(pack));
+  buyPanel.classList.add('is-done');
+  buyPanel.setAttribute('aria-labelledby', 'buyDoneTitle');
+  buyDone.hidden = false;
+  buyPanel.scrollTop = 0;
+  setTimeout(function () { buyDone.querySelector('button').focus(); }, 50);
+}
+/* Back to a blank form so a second order from the same visit starts clean. */
+function resetBuySheet() {
+  buyPanel.classList.remove('is-done');
+  buyPanel.setAttribute('aria-labelledby', 'buySheetTitle');
+  buyDone.hidden = true;
+  buyForm.reset();
+  buySubmit.disabled = false;
+  setPayMethod('online');
+  setSelectedPack(selectedPack);   /* form.reset() unchecks the pack radios */
+}
 
 /* Phone field: digits only, maximum 10 digits. */
 buyPhone.addEventListener('input', function () {
@@ -1694,6 +1846,7 @@ function closeBuySheet() {
   buySheet.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('buy-sheet-open');
   buyStatus.textContent = '';
+  if (buyPanel.classList.contains('is-done')) resetBuySheet();
   if (lastBuyTrigger) lastBuyTrigger.focus();
 }
 
@@ -1709,9 +1862,10 @@ document.addEventListener('keydown', function (e) {
 
 /*
    Submit flow:
-   1) validate Name + Phone
-   2) POST the lead to Google Apps Script
-   3) continue to the selected pack's Razorpay payment page in the same tab
+   1) validate Name + Phone (+ Address when paying Cash on Delivery)
+   2) POST the lead to Google Apps Script; payment_status = Online | COD
+   3) Online → continue to the selected pack's Razorpay page in the same tab
+      COD    → stay here and show the order confirmation; nothing else opens
 */
 buyForm.addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -1737,17 +1891,26 @@ buyForm.addEventListener('submit', async function (e) {
     return;
   }
 
-  var pack = packById(selectedPack);
+  var pack    = packById(selectedPack);
+  var isCod   = payMethod === 'cod';
+  var address = buyAddress.value.trim();
+
+  if (isCod && address.length < 10) {
+    buyStatus.textContent = 'Please enter your full delivery address for Cash on Delivery.';
+    buyAddress.focus();
+    return;
+  }
 
   buySubmit.disabled = true;
-  buySubmit.textContent = 'Please wait...';
+  buySubmit.textContent = isCod ? 'Placing your order...' : 'Please wait...';
 
   var formData = new URLSearchParams();
   formData.append('name', name);
   formData.append('phone', phone);
-  formData.append('address', buyAddress.value.trim());
+  formData.append('address', address);
   formData.append('pack', pack.label);
-  formData.append('amount', String(pack.price));
+  formData.append('amount', String(isCod ? codTotal(pack) : pack.price));
+  formData.append(SHEET_STATUS_FIELD, isCod ? 'COD' : 'Online');
   formData.append('source', buySource.value || 'unknown');
   formData.append('page_url', window.location.href);
   formData.append('submitted_at', new Date().toISOString());
@@ -1760,7 +1923,13 @@ buyForm.addEventListener('submit', async function (e) {
       body: formData
     });
 
-    window.location.href = pack.link;
+    if (isCod) {
+      /* The Sheet row IS the order. Confirm on screen and never open Razorpay. */
+      showCodDone(name, phone, pack);
+      if (typeof Track !== 'undefined' && Track.codOrder) Track.codOrder(pack.id);
+    } else {
+      window.location.href = pack.link;
+    }
   } catch (error) {
     console.error('Lead submission failed:', error);
     buyStatus.textContent = 'Something went wrong. Please check your internet connection and try again.';
@@ -1851,6 +2020,23 @@ var Track = (function () {
           });
         }
       } catch (e) {}
+    },
+
+    /* A Cash on Delivery order was placed: name, phone and address are in the
+       Sheet and the customer has seen the confirmation. Unlike a Buy click
+       this IS an order, so it goes out as purchase / Purchase — tagged
+       payment_type 'cod' so it can be reported separately. A COD parcel can
+       still be refused at the door, so read it as orders, not cash received. */
+    codOrder: function (packId) {
+      var pr = prod(packId), VALUE = pr.value + (COD_FEE > 0 ? COD_FEE : 0), ITEM = pr.item;
+      var p = { currency: 'INR', value: VALUE, content_name: ITEM, payment_type: 'cod', pack: ITEM };
+      fire('cod_order', p);
+      ga('purchase', {
+        currency: 'INR', value: VALUE, payment_type: 'cod',
+        transaction_id: 'cod-' + Date.now(),
+        items: [{ item_name: ITEM, price: pr.value, quantity: 1 }]
+      });
+      meta('Purchase', p);
     },
 
     /* WhatsApp / email / phone taps — the B2B and support funnel. */
@@ -2269,7 +2455,6 @@ document.getElementById('cmp').innerHTML =
    ▸ DELIBERATELY NOT LISTED — the client has to answer these before they can
      go on the page. Add them back with real answers; do not invent them:
         • How quickly will my order ship?
-        • Do you offer Cash on Delivery?
         • Can I cancel or return an order?
         • Exact shelf life (the pack states a per-batch USE BY date only)
         • Nutrition / calories per serving                                  */
@@ -2283,6 +2468,13 @@ var FAQS = [
   { q: 'How do I know it is still fresh?', a: 'Every pack is stamped on the back with its packing date and a USE BY date. Check the stamp on your pack.' },
   { q: 'Do you do bulk, corporate or B2B orders?', a: 'Yes — message +91 88581 75027 on WhatsApp, or email rochersbakeshop@gmail.com.' }
 ];
+/* Only while COD_ENABLED is true, so the FAQ never promises a payment option
+   the popup does not offer. Slotted in just before the B2B question. */
+if (COD_ENABLED) FAQS.splice(FAQS.length - 1, 0, {
+  q: 'Do you offer Cash on Delivery?',
+  a: 'Yes. Tap Buy Now, fill in your delivery address and choose "Cash on Delivery" as the payment method. We\'ll call you to confirm the order, and you pay in cash when the pack arrives' +
+     (COD_FEE > 0 ? ' (a ' + rs(COD_FEE) + ' COD charge applies)' : '') + '.'
+});
 
 document.getElementById('faq-list').innerHTML = FAQS.map(function (f, i) {
   return '<div class="q' + (i === 0 ? ' open' : '') + '">' +
@@ -2332,6 +2524,9 @@ document.querySelectorAll('#faq-list button').forEach(function (btn) {
   PACKS.forEach(function (p) {
     if (!p.link || /REPLACE_ME/.test(p.link)) todo.push('⚠️  ' + p.label + ' has no Razorpay link in PACKS — its Buy Now button leads nowhere.');
   });
+  if (COD_ENABLED && (!SHEET_WEB_APP_URL || SHEET_WEB_APP_URL.indexOf('PASTE_YOUR_') !== -1)) {
+    todo.push('⚠️  COD_ENABLED is true but SHEET_WEB_APP_URL is not set — Cash on Delivery orders would be lost.');
+  }
   var phs = document.querySelectorAll('.ph').length;
   if (phs) todo.push(phs + ' piece(s) of placeholder copy still on the page (dashed purple underline).');
   var missing = document.querySelectorAll('.shot-miss').length;
